@@ -1,0 +1,30 @@
+.style_button {
+    padding-top: 28px;
+}
+
+.btn-view-all {
+  display: -moz-box !important;
+  display: flex !important;
+  margin: 0 auto !important;
+  -moz-box-pack: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle !important;
+  /* user-select: none!important; */
+  border: 1px solid #00b46e !important;
+  padding: 0.575rem 0.75rem !important;
+  font-size: 1.2rem !important;
+  color: #fff;
+  background-color: #00b46e;
+  border-radius: 50px !important;
+  width: 200px;
+  height: 3em;
+  font-weight: 600;
+  line-height: 2;
+  cursor: pointer;
+
+}
+
+.btn-view-all:hover {
+  color: black !important;
+}

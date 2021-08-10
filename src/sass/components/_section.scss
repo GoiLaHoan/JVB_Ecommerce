@@ -1,0 +1,15 @@
+.section {
+    margin-bottom: 80px;
+
+    & > * ~ * {
+        margin-top: 70px;
+    }
+
+    &__title {
+        font-size: 32px;
+        text-transform: capitalize;
+        text-align: center;
+        color: $main-color;
+        font-weight: 500;
+    }
+}
