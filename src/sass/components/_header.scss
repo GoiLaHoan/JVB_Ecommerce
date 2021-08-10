@@ -7,7 +7,6 @@
   z-index: 99;
   height: 80px;
   transition: height 0.3s ease;
-  //   background-image: linear-gradient(102.04deg, #00b46e, #9ac100);
   border-bottom: 2px solid #00b46e;
   @include tablet {
     height: $header-tablet-height;
@@ -89,6 +88,7 @@
 
       @include mobile {
         font-size: 1.5rem;
+        margin-right: 18px;
       }
     }
 
