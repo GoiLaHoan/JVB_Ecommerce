@@ -5,7 +5,7 @@
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 10px;
-
+  // width: 32vh;
   &__image {
     padding-top: 100%;
     position: relative;
@@ -21,6 +21,7 @@
       left: 50%;
       transform: translateX(-50%);
       height: 100%;
+      width: 100%;
     }
   }
 
@@ -44,7 +45,7 @@
 
   &__btn {
     @include tablet {
-      display: none;
+      display: block;
     }
   }
 }

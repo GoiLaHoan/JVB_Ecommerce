@@ -1,5 +1,5 @@
 .style_button {
-    padding-top: 28px;
+  padding-top: 28px;
 }
 
 .btn-view-all {
@@ -22,9 +22,19 @@
   font-weight: 600;
   line-height: 2;
   cursor: pointer;
-
 }
 
 .btn-view-all:hover {
   color: black !important;
+}
+
+.btn-popular {
+  color: #fff !important;
+  background-color: transparent !important;
+  border-color: #fff !important;
+}
+
+.btn-popular:hover {
+  color: #212529 !important;
+  background-color: #fff !important;
 }
