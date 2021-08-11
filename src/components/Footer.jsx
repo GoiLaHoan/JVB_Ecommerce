@@ -7,9 +7,7 @@ import Grid from "./Grid";
 import logo from "../assets/images/Logo.svg";
 import app from "../assets/images/footer/app.png";
 import dangky from '../assets/images/footer/dangky.png';
-import EmailIcon from '@material-ui/icons/Email';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import PhoneIcon from '@material-ui/icons/Phone';
+
 
 
 import giaohang1 from '../assets/images/footer/giaohang1.png';
@@ -132,12 +130,12 @@ const Footer = () => {
                     <Link to="/">
                       <div className='footer__app-list'>
                         <Grid col={6} mdCol={6} smCol={6} gap={5}>
-                          <div className='footer__app-background1'><img className='giaohang1' src={giaohang1}></img></div>
-                          <div className='footer__app-background2'><img className='giaohang2' src={giaohang2}></img></div>
-                          <div className='footer__app-background3'><img className='giaohang3' src={giaohang3}></img></div>
-                          <div className='footer__app-background4'><img className='giaohang4' src={giaohang4}></img></div>
-                          <div className='footer__app-background5'><img className='giaohang5' src={giaohang5}></img></div>
-                          <div className='footer__app-background6'><img className='giaohang6' src={giaohang6}></img></div>
+                          <div className='footer__app-background1'><img className='giaohang1' src={giaohang1} alt=""></img></div>
+                          <div className='footer__app-background2'><img className='giaohang2' src={giaohang2} alt=""></img></div>
+                          <div className='footer__app-background3'><img className='giaohang3' src={giaohang3} alt=""></img></div>
+                          <div className='footer__app-background4'><img className='giaohang4' src={giaohang4} alt=""></img></div>
+                          <div className='footer__app-background5'><img className='giaohang5' src={giaohang5} alt=""></img></div>
+                          <div className='footer__app-background6'><img className='giaohang6' src={giaohang6} alt=""></img></div>
                     
                         </Grid>
                         </div>
@@ -151,14 +149,14 @@ const Footer = () => {
             <div className='footer__about'>
               <h3 className='footer__title'>LIÊN HỆ</h3>
               <div className="footer__contact">
-                <div className='footer__contact-icon'><EmailIcon/></div>
-                <div ><a>hotro@thuocsi.vn</a>|</div>
-                <div><FacebookIcon/></div>
+                <div className='footer__contact-icon'>Icon_Email</div>
+                <div ><Link to ='/'>hotro@thuocsi.vn</Link>|</div>
+                <div>Icon_facebook</div>
                 
             </div>
             <div className="footer__contact">
-                <div className="footer__contact-icon"><PhoneIcon/></div>
-                <div><a>028 7300 8840</a></div>
+                <div className="footer__contact-icon">Icon_Phone</div>
+                <div><Link to ='/'>028 7300 8840</Link></div>
             </div>
             
             <Link to="/">
@@ -166,8 +164,6 @@ const Footer = () => {
                 </Link>
               
             </div>
-            
-            
           </Grid>
         </div>
       </footer>
