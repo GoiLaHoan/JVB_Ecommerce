@@ -13,22 +13,28 @@ export const FormContainer = styled.form`
     display: flex;
     flex-direction: column;
     box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
+    
 `;
 
 export const MutedLink = styled.a`
-    font-size: 11px;
-    color: rgba(200, 200, 200, 0.8);
+    font-size: 14px;
+    color: lightslategray;
     font-weight: 500;
     text-decoration: none;
+    margin-top: 10px;
 `;
 
 export const BoldLink = styled.a`
-    font-size: 11px;
+    font-size: 17px;
     color: rgb(0, 171, 85);
     font-weight: 500;
     text-decoration: none;
     margin: 0 4px;
 `;
+export const LogErrors = styled.p`
+    font-style: italic;
+    color: red;
+`
 
 export const Input = styled.input`
     width: 100%;
@@ -39,7 +45,7 @@ export const Input = styled.input`
     border-bottom: 1.4px solid transparent;
     transition: all 200ms ease-in-out;
     font-size: 12px;
-
+    border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
     &::placeholder {
         color: rgba(200, 200, 200, 1);
     }

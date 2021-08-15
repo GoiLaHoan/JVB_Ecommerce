@@ -60,7 +60,7 @@ const HeaderText = styled.h2`
 const SmallText = styled.h5`
     color: #fff;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
     z-index: 10;
     margin: 0;
     margin-top: 7px;
