@@ -156,19 +156,19 @@ const Footer = () => {
               <h3 className='footer__title'>LIÊN HỆ</h3>
               <div className="footer__contact">
                 <div className='footer__contact-icon'>
-                  <i class="icon-item far fa-envelope"></i>
+                  <i className="icon-item far fa-envelope"></i>
                 </div>
                 <Link to ='/'>
                   <div className='footer__text-item'>hotro@thuocsi.vn|</div>
                   </Link>
                 <div className='footer__contact-facebook'>
-                  <i class="icon-item fab fa-facebook"></i>
+                  <i className="icon-item fab fa-facebook"></i>
                 </div>
                 
             </div>
             <div className="footer__contact">
                 <div className="footer__contact-icon">
-                <i class="icon-item fas fa-phone"></i>
+                <i className="icon-item fas fa-phone"></i>
                 </div>
                 <Link to ='/'>
                   <div className='footer__text-item'>028 7300 8840</div>

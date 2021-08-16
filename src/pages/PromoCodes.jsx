@@ -8,7 +8,7 @@ import Helmet from '../components/Helmet'
         //     PromoCodes
         // </Helmet>
         <Helmet title="PromoCodes">
-            <promocodes>
+            
             <div className="promocodes__content">
                 
                     <h1 className="promocodes__title">MÃ GIẢM GIÁ</h1>
@@ -33,7 +33,7 @@ import Helmet from '../components/Helmet'
                 <h1>Các mã khác</h1>
                 <p>Chưa có mã</p>
             </div>
-        </promocodes>
+        
         </Helmet>
         
     )
