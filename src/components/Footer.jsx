@@ -6,9 +6,11 @@ import Grid from "./Grid";
 
 import logo from "../assets/images/Logo.svg";
 import app from "../assets/images/footer/app.png";
+import IOS from "../assets/images/footer/IOS.png";
+import android from '../assets/images/footer/android.png';
 import dangky from '../assets/images/footer/dangky.png';
 
-
+import 'font-awesome/css/font-awesome.min.css';
 
 import giaohang1 from '../assets/images/footer/giaohang1.png';
 import giaohang2 from '../assets/images/footer/giaohang2.png';
@@ -66,7 +68,7 @@ const footerAboutInformation = [
     },
     {  
       // 11
-        display: "Đăng ký bán hàng cùng thuocsi",
+        display: "Bán hàng cùng thuocsi",
         path: "/about"
     },
     
@@ -99,12 +101,16 @@ const Footer = () => {
                 </Link>
               </p>
               <p>
-                <b><strong style={{color: '$txt-main-color'}}>thuocsi.vn</strong> là website thuộc sở hữu của công ty TNHH Buymed.</b>
-                Công Ty TNHH Buymed Địa Chỉ: 602/27 Điện Biên Phủ, Phường 22, Quận
-                Bình Thạnh, Hồ Chí Minh Số Chứng Nhận Đăng Ký Kinh Doanh:
-                0314758651, Cấp Ngày 29/11/2017, Tại Sở Kế Hoạch Và Đầu Tư Thành
-                Phố Hồ Chí Minh Số Giấy Phép Sàn Thương Mại Điện Tử:
+                <b><strong style={{color: '$txt-main-color'}}>thuocsi.vn</strong> <b></b>là website thuộc sở hữu của công ty TNHH Buymed.</b>
+                <h3>Công Ty TNHH Buymed</h3> 
+                <p>Địa Chỉ: <b>602/27 Điện Biên Phủ, Phường 22, Quận Bình Thạnh, Hồ Chí Minh</b><br/>
+                Số Chứng Nhận Đăng Ký Kinh Doanh:
+                0314758651, <b>Cấp Ngày 29/11/2017,</b> <br />
+                Tại Sở Kế Hoạch Và Đầu Tư Thành
+                Phố Hồ Chí Minh <br/>Số Giấy Phép Sàn Thương Mại Điện Tử:
                 0314758651/KD-0368
+                </p> 
+                
               </p>
               <div>
               <Link to="/">
@@ -123,21 +129,20 @@ const Footer = () => {
                 </Grid>
                 
               </div>
+
               <div className="footer__app">
                   <h3 className='footer__title'>DỊCH VỤ GIAO HÀNG</h3>
-                
-                  
                     <Link to="/">
                       <div className='footer__app-list'>
-                        <Grid col={6} mdCol={6} smCol={6} gap={5}>
-                          <div className='footer__app-background1'><img className='giaohang1' src={giaohang1} alt=""></img></div>
-                          <div className='footer__app-background2'><img className='giaohang2' src={giaohang2} alt=""></img></div>
-                          <div className='footer__app-background3'><img className='giaohang3' src={giaohang3} alt=""></img></div>
-                          <div className='footer__app-background4'><img className='giaohang4' src={giaohang4} alt=""></img></div>
-                          <div className='footer__app-background5'><img className='giaohang5' src={giaohang5} alt=""></img></div>
-                          <div className='footer__app-background6'><img className='giaohang6' src={giaohang6} alt=""></img></div>
+                        
+                          <div className='footer__app-background1'><img className='footer__giaohang1' src={giaohang1} alt=""></img></div>
+                          <div className='footer__app-background1'><img className='footer__giaohang2' src={giaohang2} alt=""></img></div>
+                          <div className='footer__app-background3'><img className='footer__giaohang3' src={giaohang3} alt=""></img></div>
+                          <div className='footer__app-background2'><img className='footer__giaohang4' src={giaohang4} alt=""></img></div>
+                          <div className='footer__app-background2'><img className='footer__giaohang5' src={giaohang5} alt=""></img></div>
+                          <div className='footer__app-background3'><img className='footer__giaohang6' src={giaohang6} alt=""></img></div>
                     
-                        </Grid>
+                        
                         </div>
                      </Link>
                   
@@ -146,23 +151,40 @@ const Footer = () => {
                       
                 </div>
             </div>
+            
             <div className='footer__about'>
               <h3 className='footer__title'>LIÊN HỆ</h3>
               <div className="footer__contact">
-                <div className='footer__contact-icon'>Icon_Email</div>
-                <div ><Link to ='/'>hotro@thuocsi.vn</Link>|</div>
-                <div>Icon_facebook</div>
+                <div className='footer__contact-icon'>
+                  <i class="icon-item far fa-envelope"></i>
+                </div>
+                <Link to ='/'>
+                  <div className='footer__text-item'>hotro@thuocsi.vn|</div>
+                  </Link>
+                <div className='footer__contact-facebook'>
+                  <i class="icon-item fab fa-facebook"></i>
+                </div>
                 
             </div>
             <div className="footer__contact">
-                <div className="footer__contact-icon">Icon_Phone</div>
-                <div><Link to ='/'>028 7300 8840</Link></div>
+                <div className="footer__contact-icon">
+                <i class="icon-item fas fa-phone"></i>
+                </div>
+                <Link to ='/'>
+                  <div className='footer__text-item'>028 7300 8840</div>
+                  </Link>
             </div>
             
             <Link to="/">
                     <img className="app" src={app} alt="App" />
                 </Link>
-              
+
+              <div className='footer__app-store'>
+                <Link to="/">
+                    <div className='footer__app-store-item'><img className="IOS" src={IOS} alt="IOS" /></div>
+                    <div className='footer__app-store-item'><img className="android" src={android} alt="android" /></div>
+                </Link>
+              </div>
             </div>
           </Grid>
         </div>
