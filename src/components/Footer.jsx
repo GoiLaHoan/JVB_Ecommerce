@@ -93,7 +93,7 @@ const Footer = () => {
     return (
       <footer className="footer">
         <div className="footer__container">
-          <Grid col={2} mdCol={2} smCol={1} gap={50}>
+          <Grid col={2} mdCol={1} smCol={1} gap={50}>
             <div className="footer__about">
               <p>
                 <Link to="/">
