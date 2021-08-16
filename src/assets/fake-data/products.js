@@ -67,7 +67,7 @@ const products = [
         title: "Glotadol 500mg Abbott (Hộp/100viên Nén)(Hồng)",
         price: '34300',
         image01: product_06_image_01,
-        categorySlug: "thuoc",
+        categorySlug: "thuoc-vi",
         slug: "thuoc-Glotadol",
         description: ""
     },
@@ -75,7 +75,7 @@ const products = [
         title: "Dung Dịch Vệ Sinh Phụ Nữ Dạ Hương Xanh Có Vòi (C/120ml)",
         price: '31800',
         image01: product_07_image_01,
-        categorySlug: "thuoc",
+        categorySlug: "thuoc-vi",
         slug: "dung-dich-vs-xanh",
         description: ""
     },
@@ -83,7 +83,7 @@ const products = [
         title: "Dung Dịch Vệ Sinh Phụ Nữ Dạ Hương Tím Có Vòi (C/120ml)",
         price: '31800',
         image01: product_08_image_01,
-        categorySlug: "thuoc",
+        categorySlug: "thuoc-vi",
         slug: "dung-dich-vs-tim",
         description: ""
     },
@@ -91,7 +91,7 @@ const products = [
         title: "Dạ Hương Trà Xanh Hoa Linh (C/100ml)(Xanh Lá)",
         price: '26600',
         image01: product_09_image_01,
-        categorySlug: "thuoc",
+        categorySlug: "thuoc-vi",
         slug: "da-huong-tra-xanh",
         description: ""
     },
@@ -99,7 +99,7 @@ const products = [
         title: "Cataflam 50mg Novartis (H/10v)",
         price: '46990',
         image01: product_10_image_01,
-        categorySlug: "thuoc",
+        categorySlug: "thuoc-vi",
         slug: "thuoc-Cataflam",
         description: ""
     },
@@ -107,7 +107,7 @@ const products = [
         title: "Dinalvic Pharimexco (H/20v)",
         price: '22500',
         image01: product_11_image_01,
-        categorySlug: "thuoc",
+        categorySlug: "thuoc-vi",
         slug: "thuoc-Dinalvic Pharimexco",
         description: ""
     },
@@ -115,7 +115,7 @@ const products = [
         title: "Xịt Mũi Xypenat Merap (C/30ml)",
         price: '24200',
         image01: product_12_image_01,
-        categorySlug: "thuoc",
+        categorySlug: "thuoc-vi",
         slug: "thuoc-xitmui",
         description: ""
     },
