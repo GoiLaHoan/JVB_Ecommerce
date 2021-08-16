@@ -88,7 +88,7 @@ const Catalog = () => {
         style={{ paddingTop: "3rem", paddingBottom: "3rem" }}
       >
         <div className="container">
-          <div className="main">
+          <div className="main main-catalog">
             <div className="catalog">
               <div className="catalog__filter" ref={filterRef}>
                 <div

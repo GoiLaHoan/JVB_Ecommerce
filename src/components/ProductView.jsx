@@ -70,7 +70,7 @@ const ProductView = (props) => {
           <div className="product__info__item_left">
             <div
               className="product__info__item__sold"
-              style={{ display: "flex" }}
+              
             >
               <i
                 className="bx bx-cart"
@@ -110,7 +110,7 @@ const ProductView = (props) => {
                 </div>
               </div>
             </div>
-            <div className="product__info__item">
+            <div className="product__info__item product__info__item__button">
               <Button onClick={() => addToCart()}>thêm vào giỏ</Button>
               <Button onClick={() => goToCart()}>mua ngay</Button>
             </div>

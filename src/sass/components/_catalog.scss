@@ -1,3 +1,12 @@
+.main-catalog {
+    @include tablet {
+        margin-top: calc(-25px) !important;
+    }
+    @include mobile {
+        margin-top: calc(-55px) !important;
+    } 
+}
+
 .catalog {
     @include flex(flex-start, flex-start);
 

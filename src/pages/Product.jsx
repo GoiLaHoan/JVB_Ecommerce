@@ -20,7 +20,7 @@ const Product = (props) => {
   return (
     <Helmet title={product.title}>
       <div className="container">
-        <div className="main">
+        <div className="main main_product">
           <Section>
             <SectionBody>
               <ProductView product={product} />
