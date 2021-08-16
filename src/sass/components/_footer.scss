@@ -41,11 +41,22 @@
     &__information {
         margin-top: 30px;
     }
-
-    &__contact{
+    &__contact {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 50px;
+        }
+        @include mobile {
+            justify-content: space-between;
+        }
+    }
+    &__contact-detail{
         display: flex;
         margin-bottom: 10px;
         align-items: center;
+
+        
     }
     &__icon-item {
         align-items: center;

@@ -22,62 +22,57 @@ import giaohang6 from '../assets/images/footer/giaohang6.png';
 
 const footerAboutInformation = [
     {  
-      // 1
+      
         display: "Giới thiệu về thuocsi.vn",
         path: "/about"
     },
     {  
-      // 7
+      
         display: "Điều khoản sử dụng",
         path: "/about"
     },
     {  
-      // 2
+      
         display: "Hướng dẫn đặt hàng",
         path: "/about"
     },
     {  
-      // 8
+      
         display: "Cơ chế giải quyết tranh chấp",
         path: "/about"
     },
     {  
-      // 3
+      
         display: "Chính sách bảo mật",
         path: "/about"
     },
     {  
-      // 9
+      
         display: "Thoả thuận về dịch vụ TMDT",
         path: "/about"
     },
     {  
-      // 4
+      
         display: "Câu hỏi thường gặp(Q&A)",
         path: "/about"
     },
     {  
-      // 10
+      
         display: "Quy chế hoạt động",
         path: "/about"
     },
     {  
-      // 5
+      
         display: "Chính sách quy định chung",
         path: "/about"
     },
     {  
-      // 11
+      
         display: "Bán hàng cùng thuocsi",
         path: "/about"
     },
-    
-    
-    
-    
-    
     {  
-      // 6
+      
         display: "Tuyển dụng | Recruiment",
         path: "/about"
     },
@@ -154,7 +149,8 @@ const Footer = () => {
             
             <div className='footer__about'>
               <h3 className='footer__title'>LIÊN HỆ</h3>
-              <div className="footer__contact">
+              <div className='footer__contact'>
+                <div className="footer__contact-detail">
                 <div className='footer__contact-icon'>
                   <i className="icon-item far fa-envelope"></i>
                 </div>
@@ -163,17 +159,19 @@ const Footer = () => {
                   </Link>
                 <div className='footer__contact-facebook'>
                   <i className="icon-item fab fa-facebook"></i>
-                </div>
-                
+                </div>  
             </div>
-            <div className="footer__contact">
-                <div className="footer__contact-icon">
-                <i className="icon-item fas fa-phone"></i>
-                </div>
-                <Link to ='/'>
-                  <div className='footer__text-item'>028 7300 8840</div>
-                  </Link>
-            </div>
+              <div className="footer__contact-detail">
+                  <div className="footer__contact-icon">
+                  <i className="icon-item fas fa-phone"></i>
+                  </div>
+                  <Link to ='/'>
+                    <div className='footer__text-item'>028 7300 8840</div>
+                    </Link>
+              </div>
+              </div>
+              
+            
             
             <Link to="/">
                     <img className="app" src={app} alt="App" />
