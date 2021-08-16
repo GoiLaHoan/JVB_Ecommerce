@@ -12,7 +12,7 @@ import img3 from "./../assets/images/slickSlider/3.png";
 const settings = {
   dots: true,
   infinite: true,
-  autoplay: true,
+  autoplay: false,
   speed: 700,
   autoplaySpeed: 1500,
   slidesToShow: 1,
@@ -24,7 +24,7 @@ const settings = {
 const Slickslider = () => {
   return (
     <div style={{ backgroundColor: "#E6ECF8" }}>
-      <Slider {...settings} style={{ marginBottom: "80px" }}>
+      <Slider {...settings} style={{ paddingTop: '40px', marginBottom: "80px" }}>
         <Link to="/">
           <img className="slick_img" src={img1} alt="" />
         </Link>

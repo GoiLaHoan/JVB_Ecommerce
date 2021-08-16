@@ -3,7 +3,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 
 import Home from "../pages/Home";
-import Products from "../pages/Products";
+import Catalog from "../pages/Catalog";
 import Product from "../pages/Product";
 import Cart from "../pages/Cart";
 import Contact from "../pages/Contact";
@@ -14,8 +14,8 @@ const Routes = () => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/products/:slug" component={Product} />
-      <Route path="/products" component={Products} />
+      <Route path="/product/:slug" component={Product} />
+      <Route path="/products" component={Catalog} />
       <Route path="/contact" component={Contact} />
       <Route path="/promo-codes" component={PromoCodes} />
       <Route path="/cart" component={Cart} />

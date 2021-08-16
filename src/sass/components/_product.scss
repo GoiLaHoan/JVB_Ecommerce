@@ -1,0 +1,204 @@
+.product {
+  //   padding-top: 50px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: #fff;
+  border-radius: 10px;
+  @include flex(flex-start, flex-start);
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__images {
+    @include flex(flex-start, flex-start);
+    width: 30%;
+    padding: 20px;
+    flex-wrap: wrap;
+
+    @include tablet {
+      width: 80%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+
+    &__list {
+      width: 20%;
+
+      &__item {
+        cursor: pointer;
+        border: 1px solid #f9b514 !important;
+        border-radius: 10px;
+        padding: 0.25rem !important;
+        opacity: 0.6;
+      }
+    }
+
+    &__main {
+      width: 80%;
+      padding-top: 100%;
+      position: relative;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        height: 100%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__info {
+    flex-grow: 1;
+    top: $header-shrink-height;
+    padding-top: 2rem;
+
+    @include mobile {
+      position: relative;
+      top: unset;
+    }
+
+    &__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+    }
+
+    &__description {
+      margin: 20px 0;
+      color: #919aa3;
+    }
+
+    &__item {
+      margin-top: 2rem;
+
+      &_wrap {
+        padding-top: 40px;
+        @include flex(flex-start, flex-start);
+        // flex-direction: column;
+      }
+      &_left {
+        width: 60%;
+      }
+      &_right {
+        width: 40%;
+        border: 1px solid #c3ccdc;
+        // min-width: 420px;
+        border-radius: 6px;
+        margin: 12px;
+        display: flex;
+        flex-direction: column;
+        // text-align: center;
+        &_label {
+          margin: 10px 10px 6px 10px;
+        }
+        &_content {
+          margin: 0 10px;
+          color: $main-color;
+          font-size: 1.2rem;
+        }
+        &_icon {
+          color: #f9b514;
+          margin-left: 10px;
+          font-size: 1.5rem;
+        }
+      }
+      &__price {
+        color: $main-color;
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      &__list {
+        @include flex(center, flex-start);
+
+        &__item {
+          @include flex(center, center);
+
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 2px solid $txt-second-color;
+          cursor: pointer;
+          margin-right: 1rem;
+
+          @include mobile {
+            width: 40px;
+            height: 40px;
+          }
+
+          &.active {
+            border-color: $main-color;
+          }
+
+          &:hover {
+            border-color: $main-color;
+          }
+
+          .circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            @include mobile {
+              width: 30px;
+              height: 30px;
+            }
+          }
+
+          &__size {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      &__quantity {
+        @include flex(flex-start, flex-start);
+
+        &__btn {
+          @include flex(center, center);
+          width: 30px;
+          height: 30px;
+          //   font-size: 3rem;
+          //   color: #f9b514!important;
+          cursor: pointer;
+          .bx {
+            font-size: 3rem;
+          }
+          .bx-minus-circle {
+            color: #c4cddd;
+          }
+          .bxs-plus-circle {
+            color: #f9b514;
+          }
+        }
+
+        &__input {
+          @include flex(center, center);
+          height: 30px;
+          width: 90px;
+          font-size: 1.5rem;
+          color: #f9b514;
+          margin: 0 6px;
+          min-width: 180px;
+          line-height: 1.8rem;
+          border: 2px solid #c4cddd;
+          border-radius: 3px;
+        }
+      }
+
+      button {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

@@ -1,17 +1,18 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import Helmet from "../components/Helmet";
 
-import Grid from "../components/Grid";
-import ProductCard from "../components/ProductCard";
 import CheckBox from "../components/CheckBox";
 import Button from "../components/Button";
 
 import productData from "../assets/fake-data/products";
 import category from "../assets/fake-data/category";
+import producer from "../assets/fake-data/category-producer";
+import InfinityList from "../components/InfinityList";
 
-const Products = () => {
+const Catalog = () => {
   const initFilter = {
     category: [],
+    producer: [],
   };
 
   const productList = productData.getAllProducts();
@@ -29,6 +30,12 @@ const Products = () => {
             category: [...filter.category, item.categorySlug],
           });
           break;
+        case "PRODUCER":
+          setFilter({
+            ...filter,
+            producer: [...filter.producer, item.producer],
+          });
+          break;
         default:
       }
     } else {
@@ -39,18 +46,28 @@ const Products = () => {
           );
           setFilter({ ...filter, category: newCategory });
           break;
+        case "PRODUCER":
+          const newProducer = filter.producer.filter(
+            (e) => e !== item.producer
+          );
+          setFilter({ ...filter, producer: newProducer });
+          break;
         default:
       }
     }
   };
 
-  // const clearFilter = () => setFilter(initFilter)
+  const clearFilter = () => setFilter(initFilter);
 
   const updateProducts = useCallback(() => {
     let temp = productList;
 
     if (filter.category.length > 0) {
       temp = temp.filter((e) => filter.category.includes(e.categorySlug));
+    }
+
+    if (filter.producer.length > 0) {
+      temp = temp.filter((e) => filter.producer.includes(e.producer));
     }
 
     setProducts(temp);
@@ -60,9 +77,12 @@ const Products = () => {
     updateProducts();
   }, [updateProducts]);
 
+  const filterRef = useRef(null);
+
+  const showHideFilter = () => filterRef.current.classList.toggle("active");
+
   return (
     <Helmet title="Products">
-      {console.log(filter)}
       <div
         className="style_wapper"
         style={{ paddingTop: "3rem", paddingBottom: "3rem" }}
@@ -70,10 +90,14 @@ const Products = () => {
         <div className="container">
           <div className="main">
             <div className="catalog">
-              <div className="catalog__filter">
-                <div className="catalog__filter__close">
+              <div className="catalog__filter" ref={filterRef}>
+                <div
+                  className="catalog__filter__close"
+                  onClick={() => showHideFilter()}
+                >
                   <i className="bx bx-left-arrow-alt"></i>
                 </div>
+
                 <div className="catalog__filter__widget">
                   <div className="catalog__filter__widget__title">
                     danh mục sản phẩm
@@ -93,29 +117,54 @@ const Products = () => {
                               item
                             );
                           }}
+                          checked={filter.category.includes(item.categorySlug)}
                         />
                       </div>
                     ))}
                   </div>
                 </div>
+
+                <div className="catalog__filter__widget">
+                  <div className="catalog__filter__widget__title">
+                    Nhà sản xuất
+                  </div>
+                  <div className="catalog__filter__widget__content">
+                    {producer.map((item, index) => (
+                      <div
+                        key={index}
+                        className="catalog__filter__widget__content__item"
+                      >
+                        <CheckBox
+                          label={item.display}
+                          onChange={(input) => {
+                            return filterSelect(
+                              "PRODUCER",
+                              input.checked,
+                              item
+                            );
+                          }}
+                          checked={filter.producer.includes(item.producer)}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
                 <div className="catalog__filter__widget">
                   <div className="catalog__filter__widget__content">
-                    <Button size="sm">xóa bộ lọc</Button>
+                    <Button size="sm" onClick={clearFilter}>
+                      xóa bộ lọc
+                    </Button>
                   </div>
                 </div>
               </div>
+              <div className="catalog__filter__toggle">
+                <Button size="sm" onClick={() => showHideFilter()}>
+                  Bộ Lọc
+                </Button>
+              </div>
               <div className="catalog__content">
-                <Grid col={4} mdCol={2} smCol={1} gap={20}>
-                  {products.map((item, index) => (
-                    <ProductCard
-                      key={index}
-                      img01={item.image01}
-                      name={item.title}
-                      price={Number(item.price)}
-                      slug={item.slug}
-                    />
-                  ))}
-                </Grid>
+                <InfinityList data={products} />
               </div>
             </div>
           </div>
@@ -125,4 +174,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Catalog;

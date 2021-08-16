@@ -28,6 +28,7 @@
 
         &.active {
             transform: translateX(0);
+            z-index: 88;
         }
 
         &__widget {
