@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 const UseForm = validate => {
 
     const check = localStorage.getItem("user");
@@ -17,7 +17,7 @@ const UseForm = validate => {
     })
 
     const [errors, setErrors] = useState({})
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    const [setIsSubmitting] = useState(false)
     const handleChange = e => {
         const { name, value } = e.target;
         setValues({
