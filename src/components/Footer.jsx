@@ -10,7 +10,7 @@ import IOS from "../assets/images/footer/IOS.png";
 import android from "../assets/images/footer/android.png";
 import dangky from "../assets/images/footer/dangky.png";
 
-import "font-awesome/css/font-awesome.min.css";
+// import "font-awesome/css/font-awesome.min.css";
 
 import giaohang1 from "../assets/images/footer/giaohang1.png";
 import giaohang2 from "../assets/images/footer/giaohang2.png";
@@ -167,18 +167,21 @@ const Footer = () => {
             <div className="footer__contact">
               <div className="footer__contact-detail">
                 <div className="footer__contact-icon">
-                  <i className="icon-item far fa-envelope"></i>
+                  <i className="footer__icon-item bx bx-mail-send"></i>
                 </div>
                 <Link to="/">
-                  <div className="footer__text-item">hotro@thuocsi.vn|</div>
+                  <div className="footer__text-item">hotro@thuocsi.vn</div>
                 </Link>
                 <div className="footer__contact-facebook">
-                  <i className="icon-item fab fa-facebook"></i>
+                  <i className="footer__icon-item bx bxl-facebook"></i>
+                  {/* <Link to="/">
+                  <div className="footer__text-item">facebook.com/thuocsi</div>
+                </Link> */}
                 </div>
               </div>
               <div className="footer__contact-detail">
                 <div className="footer__contact-icon">
-                  <i className="icon-item fas fa-phone"></i>
+                  <i className="footer__icon-item bx bxs-phone"></i>
                 </div>
                 <Link to="/">
                   <div className="footer__text-item">028 7300 8840</div>

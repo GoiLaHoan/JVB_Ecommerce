@@ -43,8 +43,8 @@
     }
     &__contact {
         @include tablet {
-            display: flex;
-            justify-content: space-between;
+            // display: flex;
+            // justify-content: space-between;
             margin-right: 50px;
         }
         @include mobile {
@@ -60,8 +60,10 @@
     }
     &__icon-item {
         align-items: center;
-        width: 40px;
-        height: 40px;
+        // width: 40px;
+        // height: 40px;
+        // font-weight: 500;
+        font-size: 1.5rem !important;
     }
     &__text-item {
         padding: 5px;
