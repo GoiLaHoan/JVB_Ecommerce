@@ -84,7 +84,7 @@ const Header = () => {
                 <input
                   className="header__menu__form__input"
                   type="search"
-                  placeholder="Search..."
+                  placeholder="Nhập tên thuốc..."
                 />
                 <Link to="/products">
                   <i className="header__menu__right__item_icon_search bx bx-search"></i>
