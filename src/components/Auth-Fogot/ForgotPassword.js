@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 const ForgotPassword = validate => {
     const ForgotEmail = localStorage.getItem("user");
     var checkEmail;
@@ -12,7 +12,7 @@ const ForgotPassword = validate => {
         password: ''
     })
     const [errors, setErrors] = useState({})
-    const [setIsSubmitting] = useState(false)
+    const [isSubmitting ,setIsSubmitting] = useState(false)
     const handleChange = e => {
         const { name, value } = e.target;
         setValues({
@@ -24,20 +24,27 @@ const ForgotPassword = validate => {
         e.preventDefault();
         setErrors(validate(values))
         setIsSubmitting(true)
+        if (checkEmail.length === 0) {
+            if (values.email === "") {
+                alert("nhap email");
+            } else {
+                alert("email khong ton tai");
+            }
+        }
         for (let i = 0; i < checkEmail.length; i++) {
             if (checkEmail[i].email === values.email) {
                 // <NewPassword />
                 alert("Nhap mk moi cua ban");
-               break;
-    
-            } else if (values.email === ""){
+                break;
+
+            } else if (values.email === "") {
                 alert("nhap email");
                 break;
             } else {
                 alert("email khong ton tai");
                 break;
             }
-            
+
         }
     }
     return { handleChange, values, handleSubmit, errors };

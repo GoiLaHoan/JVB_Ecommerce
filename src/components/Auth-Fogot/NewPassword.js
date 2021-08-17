@@ -7,7 +7,7 @@ const ForgotPassword = validate => {
         password2: ''
     })
     const [errors, setErrors] = useState({})
-    const [setIsSubmitting] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false)
     const handleChange = e => {
         const { name, value } = e.target;
         setValues({

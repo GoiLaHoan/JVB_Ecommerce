@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState, useEffect } from "react";
 const UseForm = validate => {
 
     const check = localStorage.getItem("user");
@@ -17,7 +17,7 @@ const UseForm = validate => {
     })
 
     const [errors, setErrors] = useState({})
-    const [setIsSubmitting] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false)
     const handleChange = e => {
         const { name, value } = e.target;
         setValues({
@@ -32,11 +32,15 @@ const UseForm = validate => {
         setIsSubmitting(true)
         // console.log(values);
         if (dataUser.length === 0) {
-            dataUser.push(values);
-            localStorage.setItem("user", JSON.stringify(dataUser));
-            alert("dang ki thanh cong");
-
-        } else if (dataUser.length > 0 ) {
+            if (values.email === "" || values.username === "" || values.password === "" || values.password2 === "") {
+                alert('vui long nhap thong tin dang ki');
+               
+            } else {
+                dataUser.push(values);
+                localStorage.setItem("user", JSON.stringify(dataUser));
+                alert("dang ki thanh cong");
+            }
+        } else if (dataUser.length > 0) {
             for (let i = 0; i < dataUser.length; i++) {
                 if (dataUser[i].email === values.email) {
                     alert('email da ton tai');

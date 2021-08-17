@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Helmet from "../components/Helmet";
 import Section, { SectionTitle, SectionBody } from "../components/Section";
@@ -34,7 +35,9 @@ const Home = () => {
                 ))}
               </Grid>
               <div className="style_button">
-                <button className="btn-view-all">Xem tất cả</button>
+                <Link to="/products">
+                  <button className="btn-view-all">Xem tất cả</button>
+                </Link>
               </div>
             </SectionBody>
           </Section>
@@ -66,7 +69,9 @@ const Home = () => {
               ))}
             </Grid>
             <div className="style_button">
-              <button className="btn-view-all btn-popular">Xem tất cả</button>
+              <Link to="/products">
+                <button className="btn-view-all btn-popular">Xem tất cả</button>
+              </Link>
             </div>
           </SectionBody>
         </div>
@@ -76,14 +81,14 @@ const Home = () => {
       {/* Doi tac */}
       <div className="container">
         {/* <div className="main"> */}
-          <Section>
-            <SectionTitle>Đối tác của thuocsi.vn</SectionTitle>
-            <SectionBody>
-              {/* <Grid col={6} mdCol={3} smCol={1} gap={0}> */}
-                <Doitac/>
-              {/* </Grid> */}
-            </SectionBody>
-          </Section>
+        <Section>
+          <SectionTitle>Đối tác của thuocsi.vn</SectionTitle>
+          <SectionBody>
+            {/* <Grid col={6} mdCol={3} smCol={1} gap={0}> */}
+            <Doitac />
+            {/* </Grid> */}
+          </SectionBody>
+        </Section>
         {/* </div> */}
       </div>
       {/* End Doi tac */}

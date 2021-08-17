@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect  } from 'react'
 
 const Login = validate => {
     const checkAccountUser = localStorage.getItem("user");
     var accountUser;
     if (checkAccountUser) {
-        accountUser = JSON.parse(checkAccountUser)
+        accountUser = JSON.parse(checkAccountUser);
     } else {
         accountUser = [];
     }
@@ -13,7 +13,7 @@ const Login = validate => {
         password: '',
     })
     const [errors, setErrors] = useState({})
-    const [setIsSubmitting] = useState(false)
+    const [isSubmitting, setIsSubmitting] = useState(false)
     const handleChange = e => {
         const { name, value } = e.target;
         setValues({
@@ -25,8 +25,12 @@ const Login = validate => {
         e.preventDefault();
         setErrors(validate(values))
         setIsSubmitting(true)
-        if(accountUser.length === 0) {
-            console.log("chua co data");
+        if (accountUser.length === 0) {
+            if ((values.email === "" || values.password === "")) {
+                alert("vui long nhap tk");
+            } else{
+                alert("tk khong ton tai");
+            }
         } else if (accountUser.length > 0) {
             for (let i = 0; i < accountUser.length; i++) {
                 if (accountUser[i].email === values.email && accountUser[i].password === values.password) {
@@ -39,10 +43,10 @@ const Login = validate => {
                     alert("khong ton tai tk");
                     break;
                 }
-    
+
             }
         }
-        
+
 
 
     }
