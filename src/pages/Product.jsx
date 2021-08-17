@@ -4,7 +4,7 @@ import Helmet from '../components/Helmet'
  const Product = () => {
     return (
         <Helmet title="Product">
-            
+            day la product
         </Helmet>
     )
 }

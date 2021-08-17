@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { LoginForm } from './LoginForm';
 import { motion } from "framer-motion";
 import { AccountContext } from './accountContext';
-import { SignUpForm } from './SignUpForm';
-
+import  SignUpForm  from './SignUpForm';
+// import { Link } from 'react-router-dom';
 
 const BoxContainer = styled.div`
-    width: 280px;
+    width: 300px;
     min-height: 550px;
     display: flex;
     flex-direction: column;
@@ -16,6 +16,7 @@ const BoxContainer = styled.div`
     box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
     position: relative;
     overflow: hidden;
+    margin-top: 35px
 `;
 const TopContainer = styled.div`
     width: 100%;

@@ -13,11 +13,11 @@ import { AccountContext } from "./accountContext";
 import UseForm from '../Auth-Register/UseForm'
 import ValidateInfo from '../Auth-Register/validateInfo'
 
-export function SignUpForm() {
+const SignUpForm = () => {
   const { switchToSignin } = useContext(AccountContext);
   const { handleChange, values, handleSubmit, errors } = UseForm(ValidateInfo);
   // const userData;
-
+  
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -46,5 +46,9 @@ export function SignUpForm() {
         </BoxContainer>
       </form>
     </>
+
   );
+
 }
+
+export default SignUpForm;

@@ -1,0 +1,28 @@
+.slick_img {
+  width: 100%;
+  height: 60vh;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  margin: auto;
+  padding: 0 5px;
+  // text-decoration: none;
+  // display: inline-block;
+//   border-left: 1px solid black;
+
+  @include tablet {
+    height: 29vh;
+  }
+
+  @include mobile {
+    height: 18vh;
+  }
+}
+
+.slick-slide img {
+  text-decoration: none; 
+  display: inline-block !important;
+}
+
+.slick-prev, .slick-next {
+  display: none !important;
+}

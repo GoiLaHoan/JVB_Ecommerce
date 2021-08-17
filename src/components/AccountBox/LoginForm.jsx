@@ -1,23 +1,25 @@
 import React, { useContext, useState } from 'react';
-import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, SubmitButton } from './common'
+import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, SubmitButton, LogErrors } from './common'
 import { Marginer } from "../Marginer";
 import { AccountContext } from './accountContext';
-// import Login from '../Auth-Login/Login';
-export const LoginForm = ({ login, error }) => {
+import validateAccount from "../Auth-Login/validateAccount"
+import Login from "../Auth-Login/Login"
+
+
+export const LoginForm = () => {
     const { switchToSignup } = useContext(AccountContext);
-  
+    const { handleChange, values, handleSubmit, errors } = Login(validateAccount);
     return (
         <>
-            <form>
-                {(error !== "") ? (<div>{error}</div>) : ""}
+            <form onSubmit={handleSubmit}>
+                {/* {(error !== "") ? (<div>{error}</div>) : ""} */}
                 <BoxContainer >
 
                     <FormContainer>
-                        <Input type="email" placeholder="Email" name="email"
-                        />
-                        <Input type="password" placeholder="Password" name="password"
-                        />
-
+                        <Input type="email" placeholder="Email" name="email" value={values.email} onChange={handleChange} />
+                        {errors.password && <LogErrors>{errors.email}</LogErrors>}
+                        <Input type="password" placeholder="Password" name="password" value={values.password} onChange={handleChange} />
+                        {errors.password && <LogErrors>{errors.password}</LogErrors>}
                     </FormContainer>
                     <Marginer direction="vetical" margin={10} />
                     <MutedLink href="#">Forget your password?</MutedLink>
