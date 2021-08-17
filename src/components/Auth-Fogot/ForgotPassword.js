@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
-const Login = validate => {
-    const accountUser = JSON.parse(localStorage.getItem("user"));
+import { NewPassword } from '../AccountBox/NewPassword';
+// import { Link } from 'react-router-dom';
+const ForgotPassword = validate => {
+    const checkEmail = JSON.parse(localStorage.getItem("user"));
     const [values, setValues] = useState({
         email: '',
-        password: '',
+        password: ''
     })
     const [errors, setErrors] = useState({})
     const [isSubmitting, setIsSubmitting] = useState(false)
@@ -19,23 +20,22 @@ const Login = validate => {
         e.preventDefault();
         setErrors(validate(values))
         setIsSubmitting(true)
-
-        for (let i = 0; i < accountUser.length; i++) {
-            if (accountUser[i].email === values.email && accountUser[i].password === values.password) {
-                alert('dang nhap thanh cong');
-                return <Link to={'/products'} />
-            } else if ((values.email === "" || values.password === "")) {
-                alert("vui long nhap tk");
+        for (let i = 0; i < checkEmail.length; i++) {
+            if (checkEmail[i].email === values.email) {
+                // <NewPassword />
+                alert("Nhap mk moi cua ban");
+               break;
+    
+            } else if (values.email === ""){
+                alert("nhap email");
                 break;
             } else {
-                alert("khong ton tai tk");
+                alert("email khong ton tai");
                 break;
             }
-
+            
         }
-
-
     }
     return { handleChange, values, handleSubmit, errors };
 }
-export default Login;
+export default ForgotPassword;

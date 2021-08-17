@@ -7,7 +7,7 @@ import Login from "../Auth-Login/Login"
 
 
 export const LoginForm = () => {
-    const { switchToSignup } = useContext(AccountContext);
+    const { switchToSignup, switchToForgot } = useContext(AccountContext);
     const { handleChange, values, handleSubmit, errors } = Login(validateAccount);
     return (
         <>
@@ -22,7 +22,7 @@ export const LoginForm = () => {
                         {errors.password && <LogErrors>{errors.password}</LogErrors>}
                     </FormContainer>
                     <Marginer direction="vetical" margin={10} />
-                    <MutedLink href="#">Forget your password?</MutedLink>
+                    <MutedLink href="#" onClick={switchToForgot}>Forget your password?</MutedLink>
                     <Marginer direction="vetical" margin="1.6em" />
                     <SubmitButton type="submit">SignIn</SubmitButton>
                     <Marginer direction="vetical" margin="1em" />

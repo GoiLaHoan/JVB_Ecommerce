@@ -4,6 +4,8 @@ import { LoginForm } from './LoginForm';
 import { motion } from "framer-motion";
 import { AccountContext } from './accountContext';
 import  SignUpForm  from './SignUpForm';
+import { ForgotPassword } from './ForgotPassword';
+import { NewPassword } from './NewPassword';
 // import { Link } from 'react-router-dom';
 
 const BoxContainer = styled.div`
@@ -114,8 +116,20 @@ export function AccountBox(props) {
             setActive("signin");
         }, 400);
     };
+    const switchToForgot = () => {
+        playExpandingAnimation();
+        setTimeout(() => {
+            setActive("Forget your password?");
+        }, 400);
+    };
+    const switchToNewPassword = () => {
+        playExpandingAnimation();
+        setTimeout(() => {
+            setActive("Submit");
+        }, 400);
+    };
     
-    const contextValue = { switchToSignup, switchToSignin };
+    const contextValue = { switchToSignup, switchToSignin, switchToForgot,switchToNewPassword};
     return (
         <AccountContext.Provider value={contextValue}>
             <BoxContainer>
@@ -134,10 +148,22 @@ export function AccountBox(props) {
                         <HeaderText>Account</HeaderText>
                         <SmallText>Please Sign-up  to continue!</SmallText>
                     </HeaderContainer>}
+                    {active === "Forget your password?" && <HeaderContainer>
+                        <HeaderText>Forgot</HeaderText>
+                        <HeaderText>Password</HeaderText>
+                        <SmallText>Please enter your email to continue!</SmallText>
+                    </HeaderContainer>}
+                    {active === "Submit" && <HeaderContainer>
+                        <HeaderText>Forgot</HeaderText>
+                        <HeaderText>Password</HeaderText>
+                        <SmallText>Please enter your new Password to continue!</SmallText>
+                    </HeaderContainer>}
                 </TopContainer>
                 <InnerContainer>
                     {active === "signin" && <LoginForm />}
                     {active === "signup" && <SignUpForm />}
+                    {active === "Forget your password?" && <ForgotPassword />}
+                    {active === "Submit" && <NewPassword />}
                 </InnerContainer>
             </BoxContainer>
         </AccountContext.Provider>
