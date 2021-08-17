@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import { LoginForm } from './LoginForm';
 import { motion } from "framer-motion";
 import { AccountContext } from './accountContext';
-import { SignUpForm } from './SignUpForm';
-
+import  SignUpForm  from './SignUpForm';
+import { ForgotPassword } from './ForgotPassword';
+import { NewPassword } from './NewPassword';
+// import { Link } from 'react-router-dom';
 
 const BoxContainer = styled.div`
-    width: 280px;
+    width: 300px;
     min-height: 550px;
     display: flex;
     flex-direction: column;
@@ -16,6 +18,7 @@ const BoxContainer = styled.div`
     box-shadow: 0 0 2px rgba(15, 15, 15, 0.28);
     position: relative;
     overflow: hidden;
+    margin-top: 35px
 `;
 const TopContainer = styled.div`
     width: 100%;
@@ -60,7 +63,7 @@ const HeaderText = styled.h2`
 const SmallText = styled.h5`
     color: #fff;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 14px;
     z-index: 10;
     margin: 0;
     margin-top: 7px;
@@ -113,8 +116,20 @@ export function AccountBox(props) {
             setActive("signin");
         }, 400);
     };
+    const switchToForgot = () => {
+        playExpandingAnimation();
+        setTimeout(() => {
+            setActive("Forget your password?");
+        }, 400);
+    };
+    const switchToNewPassword = () => {
+        playExpandingAnimation();
+        setTimeout(() => {
+            setActive("Submit");
+        }, 400);
+    };
     
-    const contextValue = { switchToSignup, switchToSignin };
+    const contextValue = { switchToSignup, switchToSignin, switchToForgot,switchToNewPassword};
     return (
         <AccountContext.Provider value={contextValue}>
             <BoxContainer>
@@ -133,10 +148,22 @@ export function AccountBox(props) {
                         <HeaderText>Account</HeaderText>
                         <SmallText>Please Sign-up  to continue!</SmallText>
                     </HeaderContainer>}
+                    {active === "Forget your password?" && <HeaderContainer>
+                        <HeaderText>Forgot</HeaderText>
+                        <HeaderText>Password</HeaderText>
+                        <SmallText>Please enter your email to continue!</SmallText>
+                    </HeaderContainer>}
+                    {active === "Submit" && <HeaderContainer>
+                        <HeaderText>Forgot</HeaderText>
+                        <HeaderText>Password</HeaderText>
+                        <SmallText>Please enter your new Password to continue!</SmallText>
+                    </HeaderContainer>}
                 </TopContainer>
                 <InnerContainer>
                     {active === "signin" && <LoginForm />}
                     {active === "signup" && <SignUpForm />}
+                    {active === "Forget your password?" && <ForgotPassword />}
+                    {active === "Submit" && <NewPassword />}
                 </InnerContainer>
             </BoxContainer>
         </AccountContext.Provider>

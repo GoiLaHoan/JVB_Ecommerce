@@ -10,15 +10,15 @@ import Routes from "../routes/Routes";
 const Layout = () => {
   return (
     <BrowserRouter>
-      <Route
-        render={(props) => (
-          <div>
-            <Header {...props} />
-            <Routes />
-            <Footer />
-          </div>
-        )}
-      />
+      <Route render={props => (
+        <div>
+          <Header {...props} />
+         
+              <Routes />
+           
+          <Footer />
+        </div>
+      )} />
     </BrowserRouter>
   );
 };
