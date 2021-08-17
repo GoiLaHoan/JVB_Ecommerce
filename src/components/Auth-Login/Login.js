@@ -23,7 +23,8 @@ const Login = validate => {
         for (let i = 0; i < accountUser.length; i++) {
             if (accountUser[i].email === values.email && accountUser[i].password === values.password) {
                 alert('dang nhap thanh cong');
-                return <Link to={'/products'} />
+                
+                break;
             } else if ((values.email === "" || values.password === "")) {
                 alert("vui long nhap tk");
                 break;
