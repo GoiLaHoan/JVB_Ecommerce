@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Build ###
+npm install
+npm install --save react-router
+npm install node-sass@4.14.1
+npm i -S @fortawesome/fontawesome-svg-core @fortawesome/react-fontawesome
