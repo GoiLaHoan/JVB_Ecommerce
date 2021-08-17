@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react';
-import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, SubmitButton, LogErrors } from './common'
+import React from 'react';
+import { BoxContainer, FormContainer, Input, SubmitButton } from './common'
 import { Marginer } from "../Marginer";
-import { AccountContext } from './accountContext';
-import validateForgot from "../Auth-Fogot/validateForgot"
+// import { AccountContext } from './accountContext';
+// import validateForgot from "../Auth-Fogot/validateForgot"
 // import NewPassword from "../Auth-Fogot/NewPassword"
 
 
 export const NewPassword = () => {
-    const { switchToSignin } = useContext(AccountContext);
+    // const { switchToSignin } = useContext(AccountContext);
     // const { handleChange, values, handleSubmit, errors } = Forgot(validateForgot);
     return (
         <>

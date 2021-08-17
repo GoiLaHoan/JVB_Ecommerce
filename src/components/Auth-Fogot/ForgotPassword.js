@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { NewPassword } from '../AccountBox/NewPassword';
+import { useState } from 'react'
+
 // import { Link } from 'react-router-dom';
 const ForgotPassword = validate => {
     const checkEmail = JSON.parse(localStorage.getItem("user"));
@@ -8,7 +8,7 @@ const ForgotPassword = validate => {
         password: ''
     })
     const [errors, setErrors] = useState({})
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    // const [isSubmitting, setIsSubmitting] = useState(false)
     const handleChange = e => {
         const { name, value } = e.target;
         setValues({
@@ -19,7 +19,7 @@ const ForgotPassword = validate => {
     const handleSubmit = e => {
         e.preventDefault();
         setErrors(validate(values))
-        setIsSubmitting(true)
+        // setIsSubmitting(true)
         for (let i = 0; i < checkEmail.length; i++) {
             if (checkEmail[i].email === values.email) {
                 // <NewPassword />

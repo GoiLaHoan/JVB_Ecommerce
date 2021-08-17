@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+
 const Login = validate => {
     const accountUser = JSON.parse(localStorage.getItem("user"));
     const [values, setValues] = useState({
@@ -7,7 +7,7 @@ const Login = validate => {
         password: '',
     })
     const [errors, setErrors] = useState({})
-    const [isSubmitting, setIsSubmitting] = useState(false)
+    // const [isSubmitting, setIsSubmitting] = useState(false)
     const handleChange = e => {
         const { name, value } = e.target;
         setValues({
@@ -18,7 +18,7 @@ const Login = validate => {
     const handleSubmit = e => {
         e.preventDefault();
         setErrors(validate(values))
-        setIsSubmitting(true)
+        // setIsSubmitting(true)
 
         for (let i = 0; i < accountUser.length; i++) {
             if (accountUser[i].email === values.email && accountUser[i].password === values.password) {
