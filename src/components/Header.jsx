@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, Route } from "react-router-dom";
 
 import logo from "../assets/images/Logo.svg";
+import SearchBox from "./SearchBox";
 
 const mainNav = [
   {
@@ -53,9 +54,10 @@ const Header = () => {
       <div className="container">
         <div className="header__logo">
           <Link to="/">
-            <img src={logo} alt="" />
+            <img className="header__logo__img" src={logo} alt="" />
           </Link>
         </div>
+
         <div className="header__menu">
           <div className="header__menu__mobile-toggle" onClick={menuToggle}>
             <i className="bx bx-menu-alt-left"></i>
@@ -80,16 +82,11 @@ const Header = () => {
           </div>
           <div className="header__menu__right">
             <div className="header__menu__item_icon_search header__menu__item header__menu__right__item">
-              <form className="header__menu__form" action="/products">
-                <input
-                  className="header__menu__form__input"
-                  type="search"
-                  placeholder="Nhập tên thuốc..."
-                />
-                <Link to="/products">
-                  <i className="header__menu__right__item_icon_search bx bx-search"></i>
-                </Link>
-              </form>
+              <Route
+                render={({ history, match }) => (
+                  <SearchBox history={history} match={match} />
+                )}
+              />
             </div>
             <div className="header__menu__item header__menu__right__item">
               <Link to="/cart">

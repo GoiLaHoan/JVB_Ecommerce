@@ -3,13 +3,14 @@ import Helmet from "../components/Helmet";
 import Section, { SectionBody, SectionTitle } from "../components/Section";
 import Grid from "../components/Grid";
 import ProductCard from "../components/ProductCard";
-import ProductView from '../components/ProductView'
+import ProductView from "../components/ProductView";
 
 import productData from "../assets/fake-data/products";
 import { Link } from "react-router-dom";
 
 const Product = (props) => {
   const product = productData.getProductBySlug(props.match.params.slug);
+  console.log(props.match.params.slug);
 
   const relatedProducts = productData.getProducts(6);
 

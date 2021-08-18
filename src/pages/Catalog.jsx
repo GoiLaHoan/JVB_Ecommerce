@@ -1,5 +1,12 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, {
+  useState,
+  useCallback,
+  useEffect,
+  useRef,
+  
+} from "react";
 import Helmet from "../components/Helmet";
+import { withRouter, useParams } from "react-router-dom";
 
 import CheckBox from "../components/CheckBox";
 import Button from "../components/Button";
@@ -10,6 +17,10 @@ import producer from "../assets/fake-data/category-producer";
 import InfinityList from "../components/InfinityList";
 
 const Catalog = () => {
+  let { keyword } = useParams();
+  if( keyword === undefined ) {
+      keyword = ""
+    }
   const initFilter = {
     category: [],
     producer: [],
@@ -60,8 +71,13 @@ const Catalog = () => {
   const clearFilter = () => setFilter(initFilter);
 
   const updateProducts = useCallback(() => {
-    let temp = productList;
+    let temp = [];
 
+    for (var i = 0; i < productList.length; i++) {
+      if (productList[i].title.toLowerCase().includes(keyword)) {
+        temp.push(productList[i]);
+      }
+    }
     if (filter.category.length > 0) {
       temp = temp.filter((e) => filter.category.includes(e.categorySlug));
     }
@@ -71,7 +87,7 @@ const Catalog = () => {
     }
 
     setProducts(temp);
-  }, [filter, productList]);
+  }, [keyword, filter, productList]);
 
   useEffect(() => {
     updateProducts();
@@ -158,13 +174,15 @@ const Catalog = () => {
                   </div>
                 </div>
               </div>
+
               <div className="catalog__filter__toggle">
                 <Button size="sm" onClick={() => showHideFilter()}>
                   Bộ Lọc
                 </Button>
               </div>
+
               <div className="catalog__content">
-                <InfinityList data={products} />
+                <InfinityList data={products} keyword={keyword} />
               </div>
             </div>
           </div>
@@ -174,4 +192,4 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+export default withRouter(Catalog);

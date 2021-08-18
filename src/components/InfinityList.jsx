@@ -5,7 +5,6 @@ import Grid from './Grid'
 import ProductCard from './ProductCard'
 
 const InfinityList = props => {
-
     const perLoad = 8 // items each load
 
     const listRef = useRef(null)
@@ -75,7 +74,8 @@ const InfinityList = props => {
 }
 
 InfinityList.propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.array.isRequired,
+    keyword: PropTypes.string.isRequired,
 }
 
 export default InfinityList

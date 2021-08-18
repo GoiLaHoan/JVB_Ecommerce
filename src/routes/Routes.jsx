@@ -8,18 +8,21 @@ import Product from "../pages/Product";
 import Cart from "../pages/Cart";
 import Contact from "../pages/Contact";
 import PromoCodes from "../pages/PromoCodes";
-import SignIn from "../pages/SignIn"
+import SignIn from "../pages/SignIn";
 const Routes = () => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/products/search=:keyword" component={Catalog} />
       <Route path="/product/:slug" component={Product} />
       <Route path="/products" component={Catalog} />
       <Route path="/contact" component={Contact} />
       <Route path="/promo-codes" component={PromoCodes} />
       <Route path="/cart" component={Cart} />
       <Route path="/login" component={SignIn} />
-     
+
+
+       
     </Switch>
   );
 };

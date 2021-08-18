@@ -7,7 +7,7 @@ import Button from "./Button";
 
 const ProductView = (props) => {
   const product = props.product;
-
+  // console.log(props.product);
   const [previewImg, setPreviewImg] = useState(product.image01);
 
   const [quantity, setQuantity] = useState(1);
