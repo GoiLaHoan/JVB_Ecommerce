@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { LoginForm } from "./LoginForm";
+import LoginForm from "./LoginForm";
 import { motion } from "framer-motion";
 import { AccountContext } from "./accountContext";
 import SignUpForm from "./SignUpForm";

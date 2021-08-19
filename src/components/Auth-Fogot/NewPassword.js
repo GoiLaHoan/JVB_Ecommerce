@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-// import { Link } from 'react-router-dom';
+import{ useState } from 'react'
+
 const ForgotPassword = validate => {
     const checkEmail = JSON.parse(localStorage.getItem("user"));
     const [values, setValues] = useState({

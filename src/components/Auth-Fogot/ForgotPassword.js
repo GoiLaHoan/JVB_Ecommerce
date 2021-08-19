@@ -1,8 +1,15 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 
 // import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react'
 const ForgotPassword = validate => {
-    const checkEmail = JSON.parse(localStorage.getItem("user"));
+    const ForgotEmail = localStorage.getItem("user");
+    var checkEmail;
+    if (ForgotEmail) {
+        checkEmail = JSON.parse(ForgotEmail)
+    } else {
+        checkEmail = [];
+    }
     const [values, setValues] = useState({
         email: '',
         password: ''
@@ -24,16 +31,16 @@ const ForgotPassword = validate => {
             if (checkEmail[i].email === values.email) {
                 // <NewPassword />
                 alert("Nhap mk moi cua ban");
-               break;
-    
-            } else if (values.email === ""){
+                break;
+
+            } else if (values.email === "") {
                 alert("nhap email");
                 break;
             } else {
                 alert("email khong ton tai");
                 break;
             }
-            
+
         }
     }
     return { handleChange, values, handleSubmit, errors };

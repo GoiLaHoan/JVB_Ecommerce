@@ -16,11 +16,17 @@ const Login = (validate) => {
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
-  useEffect(() => {
-    if (status) {
+  if (status) {
       history.push("/");
+
     }
-  }, [status, history]);
+
+  // useEffect(() => {
+  //   if (status) {
+  //     history.push("/");
+
+  //   }
+  // }, [status, history]);
   // const [isSubmitting, setIsSubmitting] = useState(false)
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,6 +60,6 @@ const Login = (validate) => {
     }
   };
 
-  return { handleChange, values, handleSubmit, errors, status };
+  return { handleChange, values, handleSubmit, errors };
 };
 export default Login;

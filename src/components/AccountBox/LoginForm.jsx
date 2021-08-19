@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { BoldLink, BoxContainer, FormContainer, Input, MutedLink, SubmitButton, LogErrors } from './common'
 import { Marginer } from "../Marginer";
 import { AccountContext } from './accountContext';
-import validateAccount from "../Auth-Login/validateAccount"
-import Login from "../Auth-Login/Login"
+import validateAccount from "../Auth-Login/validateAccount";
+import Login from "../Auth-Login/Login";
 
 
-export const LoginForm = () => {
+const LoginForm = () => {
     const { switchToSignup, switchToForgot } = useContext(AccountContext);
     const { handleChange, values, handleSubmit, errors } = Login(validateAccount);
     return (
@@ -27,9 +27,10 @@ export const LoginForm = () => {
                     <SubmitButton type="submit">SignIn</SubmitButton>
                     <Marginer direction="vetical" margin="1em" />
                     <MutedLink href="#">Don't have an account?<BoldLink href="#" onClick={switchToSignup}>SignUp</BoldLink></MutedLink>
-
                 </BoxContainer>
             </form>
         </>
     )
+
 }
+export default LoginForm;

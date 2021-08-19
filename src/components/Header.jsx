@@ -5,6 +5,7 @@ import logo from "../assets/images/Logo.svg";
 import SearchBox from "./SearchBox";
 
 import { LoginContext } from "./Layout";
+import { CartContext } from "./Layout";
 
 const mainNav = [
   {
@@ -27,7 +28,7 @@ const mainNav = [
 
 const Header = () => {
   const { status } = useContext(LoginContext);
-
+  const { total } = useContext(CartContext);
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
 
@@ -100,6 +101,15 @@ const Header = () => {
                   <Link to="/cart">
                     <i className="bx bx-shopping-bag"></i>
                   </Link>
+                  {total ? (
+                    <div className="header__menu__right__item__quantity">
+                      {total}
+                    </div>
+                  ) : (
+                    <div className="header__menu__right__item__quantity">
+                      0
+                    </div>
+                  )}
                 </div>
                 <div className="header__menu__item header__menu__right__item">
                   <i className="bx bx-user"></i>

@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import PropTypes from "prop-types";
 
 import { withRouter } from "react-router";
 import numberWithCommas from "../utils/numberWithCommas";
 import Button from "./Button";
-
+import { CartContext } from "./Layout";
 const ProductView = (props) => {
   const product = props.product;
   // console.log(props.product);
   const [previewImg, setPreviewImg] = useState(product.image01);
 
   const [quantity, setQuantity] = useState(1);
-
+  const { updateCart } = useContext(CartContext)
   const updateQuantity = (type) => {
     if (type === "plus") {
       setQuantity(quantity + 1);
@@ -24,7 +24,8 @@ const ProductView = (props) => {
     setPreviewImg(product.image01);
   }, [product]);
   const addToCart = () => {
-    console.log({ quantity });
+    // localStorage.setItem("quantity", quantity)
+    updateCart(quantity);
   };
 
   const goToCart = () => {
@@ -70,7 +71,7 @@ const ProductView = (props) => {
           <div className="product__info__item_left">
             <div
               className="product__info__item__sold"
-              
+
             >
               <i
                 className="bx bx-cart"
