@@ -1,8 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import { Link, useLocation, Route } from "react-router-dom";
 
 import logo from "../assets/images/Logo.svg";
 import SearchBox from "./SearchBox";
+
+import { LoginContext } from "./Layout";
 
 const mainNav = [
   {
@@ -24,6 +26,8 @@ const mainNav = [
 ];
 
 const Header = () => {
+  const { status } = useContext(LoginContext);
+
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
 
@@ -48,6 +52,7 @@ const Header = () => {
   const menuLeft = useRef(null);
 
   const menuToggle = () => menuLeft.current.classList.toggle("active");
+  // const [user, Setuser] = useState(false);
 
   return (
     <div className="header" ref={headerRef}>
@@ -88,14 +93,31 @@ const Header = () => {
                 )}
               />
             </div>
-            <div className="header__menu__item header__menu__right__item">
-              <Link to="/cart">
-                <i className="bx bx-shopping-bag"></i>
-              </Link>
-            </div>
-            <div className="header__menu__item header__menu__right__item">
-              <i className="bx bx-user"></i>
-            </div>
+
+            {status ? (
+              <>
+                <div className="header__menu__item header__menu__right__item">
+                  <Link to="/cart">
+                    <i className="bx bx-shopping-bag"></i>
+                  </Link>
+                </div>
+                <div className="header__menu__item header__menu__right__item">
+                  <i className="bx bx-user"></i>
+                </div>
+              </>
+            ) : (
+              <>
+                <Link to="/login">
+                  <div className="header__menu__right__login">
+                    <button className="header__menu__right__login__btn">
+                      <span className="header__menu__right__login__btn__label">
+                        Đăng nhập
+                      </span>
+                    </button>
+                  </div>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>
