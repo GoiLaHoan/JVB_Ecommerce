@@ -1,8 +1,7 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useContext} from 'react'
 import { Link, useLocation } from 'react-router-dom'
-
 import logo from '../assets/images/Logo.svg'
-
+import { CartContext } from './Layout'
 const mainNav = [
     {
         display: "Trang chủ",
@@ -22,11 +21,12 @@ const mainNav = [
     }
 ]
 
-const Header = () => {
-
+const Header = (props) => {
+    const { total } = useContext(CartContext)
+    // var total = localStorage.getItem("totalCart")
+    // console.log(total);
     const { pathname } = useLocation()
     const activeNav = mainNav.findIndex(e => e.path === pathname)
-
     const headerRef = useRef(null)
 
     useEffect(() => {
@@ -47,7 +47,7 @@ const Header = () => {
     const menuToggle = () => menuLeft.current.classList.toggle('active')
 
     return (
-        
+
         <div className="header" ref={headerRef}>
             <div className="container">
                 <div className="header__logo">
@@ -84,8 +84,11 @@ const Header = () => {
                         <div className="header__menu__item header__menu__right__item">
                             <Link to="/cart">
                                 <i className="bx bx-shopping-bag"></i>
+
                             </Link>
+                            <div className="header__menu__right__item__quantity">{total}</div>
                         </div>
+
                         <div className="header__menu__item header__menu__right__item">
                             <i className="bx bx-user"></i>
                         </div>
@@ -96,4 +99,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;

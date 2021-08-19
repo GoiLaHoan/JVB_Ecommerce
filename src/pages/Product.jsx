@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 
 const Product = (props) => {
   const product = productData.getProductBySlug(props.match.params.slug);
-
   const relatedProducts = productData.getProducts(6);
 
   React.useEffect(() => {

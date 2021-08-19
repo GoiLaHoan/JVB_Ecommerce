@@ -8,6 +8,7 @@ import Button from "./Button";
 import numberWithCommas from "../utils/numberWithCommas";
 
 const ProductCard = (props) => {
+
   return (
     <div className="product-card">
       <Link to={`/product/${props.slug}`}>
@@ -16,8 +17,8 @@ const ProductCard = (props) => {
         </div>
         <h3 className="product-card__name">{props.name}</h3>
         <div className="product-card__price">
-          {numberWithCommas(props.price)+" đ"}
-          
+          {numberWithCommas(props.price) + " đ"}
+
         </div>
       </Link>
       <div className="product-card__btn">

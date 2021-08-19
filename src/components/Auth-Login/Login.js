@@ -1,6 +1,6 @@
 import { useState, useEffect  } from 'react'
-
-const Login = validate => {
+import { LoginForm } from '../AccountBox/LoginForm';
+const Login = (validate) => {
     const checkAccountUser = localStorage.getItem("user");
     var accountUser;
     if (checkAccountUser) {

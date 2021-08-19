@@ -23,14 +23,15 @@ const product_11_image_01 = require('../images/products/product-11 (1).jpg').def
 const product_12_image_01 = require('../images/products/product-12 (1).jpg').default
 
 const products = [
-    {
+    {   
         title: "Silkeron Phil Inter Pharma (Lốc/15tube/10gr)",
         price: '177000',
         image01: product_01_image_01,
         categorySlug: "Thuốc 1",
         producer: "Công ti 1",
         slug: "thuoc-Silkeron Phil Inter Pharma",
-        description: "Lốc 15 tube x 10 gram"
+        description: "Lốc 15 tube x 10 gram",
+        code: "A1"
     },
     {
         title: "Amlodipin 5mg Tv.Pharm (H/30v)",
@@ -39,7 +40,8 @@ const products = [
         categorySlug: "Thuốc 1",
         producer: "Công ti 1",
         slug: "thuoc-Amlodipin 5mg Tv.Pharm",
-        description: "Hộp 3 vỉ x 10 viên"
+        description: "Hộp 3 vỉ x 10 viên",
+        code: "A2"
     },
     {
         title: "Vaspycar Trimetazidine 20mg Pymepharco (H60v)",
@@ -48,7 +50,8 @@ const products = [
         categorySlug: "Thuốc 1",
         producer: "Công ti 1",
         slug: "thuoc-Vaspycar Trimetazidine",
-        description: "Chai 60 Viên"
+        description: "Chai 60 Viên",
+        code: "A3"
     },
     {
         title: "Apitim Amlodipin 5mg Dhg (H/30v)",
@@ -57,7 +60,8 @@ const products = [
         categorySlug: "Thuốc 1",
         producer: "Công ti 2",
         slug: "thuoc-Apitim Amlodipin",
-        description: "Hộp 2 Vỉ X 30 Viên"
+        description: "Hộp 2 Vỉ X 30 Viên",
+        code: "A4"
     },
     {
         title: "Dạ Hương Tím Hoa Linh (C/100ml)",
@@ -66,7 +70,8 @@ const products = [
         categorySlug: "Thuốc 1",
         producer: "Công ti 2",
         slug: "da-huong-tim-hoa-linh",
-        description: "Chai 100ml"
+        description: "Chai 100ml",
+        code: "A5"
     },
     {
         title: "Glotadol 500mg Abbott (Hộp/100viên Nén)(Hồng)",
@@ -75,7 +80,8 @@ const products = [
         categorySlug: "Thuốc 2",
         producer: "Công ti 2",
         slug: "thuoc-Glotadol",
-        description: "Hộp 10 Vỉ X 10 Viên Nén"
+        description: "Hộp 10 Vỉ X 10 Viên Nén",
+        code: "A6"
     },
     {
         title: "Dung Dịch Vệ Sinh Phụ Nữ Dạ Hương Xanh (C/120ml)",
@@ -84,7 +90,8 @@ const products = [
         categorySlug: "Thuốc 2",
         producer: "Công ti 3",
         slug: "dung-dich-vs-xanh",
-        description: "Chai 120ml"
+        description: "Chai 120ml",
+        code: "A7"
     },
     {
         title: "Dung Dịch Vệ Sinh Phụ Nữ Dạ Hương Tím (C/120ml)",
@@ -93,7 +100,8 @@ const products = [
         categorySlug: "Thuốc 2",
         producer: "Công ti 3",
         slug: "dung-dich-vs-tim",
-        description: "Chai 120ml"
+        description: "Chai 120ml",
+        code: "A8"
     },
     {
         title: "Dạ Hương Trà Xanh Hoa Linh (C/100ml)(Xanh Lá)",
@@ -102,7 +110,8 @@ const products = [
         categorySlug: "Thuốc 2",
         producer: "Công ti 3",
         slug: "da-huong-tra-xanh",
-        description: "Chai 100ml"
+        description: "Chai 100ml",
+        code: "A9",
     },
     {
         title: "Cataflam 50mg Novartis (H/10v)",
@@ -111,7 +120,8 @@ const products = [
         categorySlug: "Thuốc 3",
         producer: "Công ti 4",
         slug: "thuoc-Cataflam",
-        description: "Hộp 1 Vỉ X 10 Viên"
+        description: "Hộp 1 Vỉ X 10 Viên",
+        code: "A10"
     },
     {
         title: "Dinalvic Pharimexco (H/20v)",
@@ -120,7 +130,8 @@ const products = [
         categorySlug: "Thuốc 3",
         producer: "Công ti 4",
         slug: "thuoc-Dinalvic Pharimexco",
-        description: "Hộp 2 Vỉ X 10 Viên"
+        description: "Hộp 2 Vỉ X 10 Viên",
+        code: "A11"
     },
     {
         title: "Xịt Mũi Xypenat Merap (C/30ml)",
@@ -129,7 +140,8 @@ const products = [
         categorySlug: "Thuốc 3",
         producer: "Công ti 4",
         slug: "thuoc-xitmui",
-        description: "Chai 30ml"
+        description: "Chai 30ml",
+        code: "A12"
     },
     // 12 products
 ]
