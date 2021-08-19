@@ -7,7 +7,9 @@ import Routes from "../routes/Routes";
 
 export const LoginContext = React.createContext();
 export const LoginProvider = (props) => {
-  const [status, setStatus] = useState(false);
+  const [status, setStatus] = useState(
+    JSON.parse(localStorage.getItem("statusLogin"))
+  );
   // const [status, setStatus] = useState(localStorage.getItem("statusLogin"));
 
   const updateStatus = () => {

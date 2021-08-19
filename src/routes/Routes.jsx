@@ -21,8 +21,6 @@ const Routes = () => {
       <Route path="/cart" component={Cart} />
       <Route path="/login" component={SignIn} />
 
-
-       
     </Switch>
   );
 };

@@ -30,8 +30,11 @@ const Header = () => {
   const { total } = useContext(CartContext);
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
-  const { status } = useContext(LoginContext);
+  const { status, updateStatus } = useContext(LoginContext);
+
   console.log(status);
+
+
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -96,7 +99,6 @@ const Header = () => {
                 )}
               />
             </div>
-
             {status ? (
               <>
                 <div className="header__menu__item header__menu__right__item">
@@ -114,6 +116,9 @@ const Header = () => {
                 <div className="header__menu__item header__menu__right__item">
                   <i className="bx bx-user"></i>
                 </div>
+                <button onClick={updateStatus}>
+                  Đăng xuất
+                </button>
               </>
             ) : (
               <>

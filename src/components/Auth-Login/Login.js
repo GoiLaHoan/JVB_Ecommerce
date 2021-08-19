@@ -26,7 +26,7 @@ const Login = (validate) => {
 
   useEffect(() => {
     if (status) {
-      history.push("/");
+      history.goBack();
     }
   }, [status, history]);
   // const [isSubmitting, setIsSubmitting] = useState(false)
