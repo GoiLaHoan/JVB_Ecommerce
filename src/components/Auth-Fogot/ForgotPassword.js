@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 
 // import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 const ForgotPassword = validate => {
     const ForgotEmail = localStorage.getItem("user");
     var checkEmail;

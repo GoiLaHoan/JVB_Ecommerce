@@ -27,11 +27,11 @@ const mainNav = [
 ];
 
 const Header = () => {
-  const { status } = useContext(LoginContext);
   const { total } = useContext(CartContext);
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
-
+  const { status } = useContext(LoginContext);
+  console.log(status);
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -45,6 +45,8 @@ const Header = () => {
         headerRef.current.classList.remove("shrink");
       }
     });
+    
+
     return () => {
       window.removeEventListener("scroll");
     };
@@ -106,9 +108,7 @@ const Header = () => {
                       {total}
                     </div>
                   ) : (
-                    <div className="header__menu__right__item__quantity">
-                      0
-                    </div>
+                    <div className="header__menu__right__item__quantity">0</div>
                   )}
                 </div>
                 <div className="header__menu__item header__menu__right__item">
