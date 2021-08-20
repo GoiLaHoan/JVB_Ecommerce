@@ -20,16 +20,17 @@ const Login = (validate) => {
   const [errors, setErrors] = useState({});
   const history = useHistory();
 
-  // if (status) {
-  //   history.push("/");
-  // }
-
   useEffect(() => {
+
     if (status) {
-      history.goBack();
+      if(history.goBack() === history.push('/login')) {
+        history.push('/')
+      }
+      else {
+        history.goBack();
+      }
     }
   }, [status, history]);
-  // const [isSubmitting, setIsSubmitting] = useState(false)
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
@@ -40,25 +41,35 @@ const Login = (validate) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validate(values));
-    // setIsSubmitting(true)
 
     if (accountUser.length === 0) {
       if (values.email === "" || values.password === "") {
-        alert("vui long nhap tk");
+        alert("Vui lòng đăng nhập tài khoản");
       } else {
-        alert("tk khong ton tai");
+        alert("Tài khoản không tồn tại");
       }
-    } else if (accountUser.length > 0) {
+    }
+    if (accountUser.length > 0) {
+      var flag = false;
       for (let i = 0; i < accountUser.length; i++) {
-        if (accountUser[i].email === values.email && accountUser[i].password === values.password) {
+        if (
+          accountUser[i].email === values.email &&
+          accountUser[i].password === values.password
+        ) {
+          flag = true;
           updateStatus();
           break;
-        } else if (values.email === "" || values.password === "") {
-          alert("vui long nhap tk");
-          break;
-        } else {
-          alert("khong ton tai tk");
-          break;
+        }
+      }
+      if (!flag) {
+        for (let i = 0; i < accountUser.length; i++) {
+          if (values.email === "" || values.password === "") {
+            alert("Vui lòng đăng nhập tài khoản");
+            break;
+          } else {
+            alert("Tài khoản không tồn tại");
+            break;
+          }
         }
       }
     }

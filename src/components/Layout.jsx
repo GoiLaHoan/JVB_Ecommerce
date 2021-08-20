@@ -8,7 +8,7 @@ import Routes from "../routes/Routes";
 export const LoginContext = React.createContext();
 export const LoginProvider = (props) => {
   const [status, setStatus] = useState(
-    JSON.parse(localStorage.getItem("statusLogin"))
+    JSON.parse(localStorage.getItem("status"))
   );
   // const [status, setStatus] = useState(localStorage.getItem("statusLogin"));
 
@@ -17,7 +17,7 @@ export const LoginProvider = (props) => {
   };
 
   useEffect(() => {
-    localStorage.setItem("statusLogin", status);
+    localStorage.setItem("status", status);
   });
 
   return (

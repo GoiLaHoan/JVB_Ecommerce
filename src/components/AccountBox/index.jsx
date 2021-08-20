@@ -138,7 +138,6 @@ export function AccountBox(props) {
   return (
     <>
       <div className="container">
-        <div className="main main__login">
           <AccountContext.Provider value={contextValue}>
             <BoxContainer>
               <TopContainer>
@@ -188,7 +187,6 @@ export function AccountBox(props) {
             </BoxContainer>
           </AccountContext.Provider>
         </div>
-      </div>
     </>
   );
 }

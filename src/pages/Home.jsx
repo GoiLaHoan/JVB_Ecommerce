@@ -19,7 +19,7 @@ const Home = () => {
 
       {/* best selling section */}
       <div className="container">
-        <div className="main">
+        <div className="main" style={{paddingTop: '0' }}>
           <Section>
             <SectionTitle>Bán Chạy</SectionTitle>
             <SectionBody>

@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
 const SearchBox = (props) => {
-  
   const [keyword, setKeyword] = useState("");
-  const [active, setActive] = useState(false);
+  // const [active, setActive] = useState(false);
   const history = useHistory();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -13,43 +12,44 @@ const SearchBox = (props) => {
     } else {
       history.push("/products");
     }
+    setKeyword("");
   };
 
   const handleOnChangeEnter = (e) => {
     if (e.key === "Enter") {
-      setKeyword("")
+      setKeyword("");
     }
   };
 
-  const toggleSearch = (e) => {
-    setActive(!active);
-  }
+  // const toggleSearch = (e) => {
+  //   setActive(!active);
+  // }
 
-    return (
-      <div>
-        <form
-          className={`header__menu__form ${active ? "active-form" : ""}`}
-          action="/products"
-          onSubmit={submitHandler}
-        >
-          <input
-            className="header__menu__form__input"
+  return (
+    <div>
+      <form
+        className={`header__menu__form`}
+        action="/products"
+        onSubmit={submitHandler}
+      >
+        <input
+          className="header__menu__form__input"
+          name="q"
+          type="text"
+          placeholder="Nhập tên thuốc..."
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value.toLowerCase())}
+          onKeyUp={handleOnChangeEnter}
+        />
 
-            name="q"
-            type="text"
-            placeholder="Nhập tên thuốc..."
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value.toLowerCase())}
-            onKeyUp={handleOnChangeEnter}
-
-          />
-         
-          <i className="header__menu__right__item_icon_search bx bx-search" onClick={toggleSearch} ></i>
-
-          {/* <Link to="/products"></Link> */}
-        </form>
-      </div>
-    );
-}
+        <i
+          className="header__menu__right__item_icon_search bx bx-search"
+          onClick={submitHandler}
+        ></i>
+        
+      </form>
+    </div>
+  );
+};
 
 export default SearchBox;

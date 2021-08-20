@@ -48,6 +48,7 @@ const InfinityList = props => {
         setLoad(false)
     }, [load, index, data, props.data])
 
+        console.log(data);
     return (
         <div ref={listRef}>
             <Grid
@@ -56,17 +57,22 @@ const InfinityList = props => {
                 smCol={1}
                 gap={20}
             >
+
                 {
+                    data.length ?
                     data.map((item, index) => (
                         <ProductCard
                             key={index}
                             img01={item.image01}
-                            img02={item.image02}
                             name={item.title}
                             price={Number(item.price)}
                             slug={item.slug}
                         />
                     ))
+                    : <>
+                    <p style={{fontSize: '18px'}}>Hiện không có sản phẩm cần tìm</p>
+                    
+                    </>
                 }
             </Grid>
         </div>
