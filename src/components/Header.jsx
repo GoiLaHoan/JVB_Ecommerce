@@ -31,9 +31,8 @@ const Header = () => {
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
   const { status, updateStatus } = useContext(LoginContext);
-
-  console.log(status);
-
+  
+  const profile = JSON.parse(localStorage.getItem("profile"));
 
   const headerRef = useRef(null);
 
@@ -48,7 +47,6 @@ const Header = () => {
         headerRef.current.classList.remove("shrink");
       }
     });
-    
 
     return () => {
       window.removeEventListener("scroll");
@@ -114,11 +112,37 @@ const Header = () => {
                   )}
                 </div>
                 <div className="header__menu__item header__menu__right__item">
-                  <i className="bx bx-user"></i>
+                  <div className="header__menu__right__profile">
+                    <i className="bx bx-user header__menu__right__profile__icon__user"></i>
+                    <div className="header__menu__right__profile__dropMenu">
+                      <h3
+                        style={{
+                          paddingBottom: "10px",
+                          borderBottom: "1px solid #00B46E",
+                        }}
+                      >
+                        {profile.username}
+                      </h3>
+                      <ul>
+                        <li className="bx bxs-user-circle icon_dropMenu">
+                          <p>My Profile</p>
+                        </li>
+                        <li className="bx bxs-inbox icon_dropMenu">
+                          <p>Inbox</p>
+                        </li>
+                        <li className="bx bxs-help-circle icon_dropMenu">
+                          <p>Help</p>
+                        </li>
+                        <li
+                          className="bx bx-log-out icon_dropMenu"
+                          onClick={updateStatus}
+                        >
+                          <p>Logout</p>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <button onClick={updateStatus}>
-                  Đăng xuất
-                </button>
               </>
             ) : (
               <>

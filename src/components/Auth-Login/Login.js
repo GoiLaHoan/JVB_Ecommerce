@@ -58,6 +58,7 @@ const Login = (validate) => {
         ) {
           flag = true;
           updateStatus();
+          localStorage.setItem("profile", JSON.stringify(accountUser[i]));
           break;
         }
       }

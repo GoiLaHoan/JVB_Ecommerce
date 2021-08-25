@@ -10,12 +10,11 @@ export const LoginProvider = (props) => {
   const [status, setStatus] = useState(
     JSON.parse(localStorage.getItem("status"))
   );
-  // const [status, setStatus] = useState(localStorage.getItem("statusLogin"));
 
   const updateStatus = () => {
     setStatus(!status);
   };
-
+  
   useEffect(() => {
     localStorage.setItem("status", status);
   });
