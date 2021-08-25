@@ -27,13 +27,20 @@ const mainNav = [
 ];
 
 const Header = () => {
-  const { total } = useContext(CartContext);
+
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
   const { status, updateStatus } = useContext(LoginContext);
   
   const profile = JSON.parse(localStorage.getItem("profile"));
 
+  const TotalQuantityCart =  localStorage.getItem("cart")
+  ? JSON.parse(localStorage.getItem("cart"))
+  : {
+      products: [],
+      totalCart: 0,
+    } 
+  
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -103,9 +110,9 @@ const Header = () => {
                   <Link to="/cart">
                     <i className="bx bx-shopping-bag"></i>
                   </Link>
-                  {total ? (
+                  {TotalQuantityCart.totalCart ? (
                     <div className="header__menu__right__item__quantity">
-                      {total}
+                      {TotalQuantityCart.totalCart}
                     </div>
                   ) : (
                     <div className="header__menu__right__item__quantity">0</div>

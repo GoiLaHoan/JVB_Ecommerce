@@ -4,7 +4,6 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Routes from "../routes/Routes";
-
 export const LoginContext = React.createContext();
 export const LoginProvider = (props) => {
   const [status, setStatus] = useState(
@@ -14,7 +13,7 @@ export const LoginProvider = (props) => {
   const updateStatus = () => {
     setStatus(!status);
   };
-  
+
   useEffect(() => {
     localStorage.setItem("status", status);
   });
@@ -28,16 +27,50 @@ export const LoginProvider = (props) => {
 
 export const CartContext = React.createContext();
 export const CartProvider = (props) => {
-  var [total, setTotal] = useState(
-    JSON.parse(localStorage.getItem("totalCart"))
+  var [cart, setCart] = useState(
+    localStorage.getItem("cart")
+      ? JSON.parse(localStorage.getItem("cart"))
+      : {
+          products: [],
+          totalCart: 0,
+        }
   );
+
+
+  const addProductToCart = (code, quantity) => {
+    const check = cart.products.findIndex((product) => product.code === code);
+    var sumQuantity = 0;
+    if (check === -1) {
+      cart.products.push({
+        code: code,
+        quantity: quantity,
+      });
+    } else {
+      var quantityProduct = cart.products[check].quantity + quantity;
+      cart.products[check] = {
+        code: code,
+        quantity: quantityProduct,
+      };
+    }
+
+    for (let i = 0; i < cart.products.length; i++) {
+      sumQuantity += cart.products[i].quantity;
+    }
+    cart.totalCart = sumQuantity;
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
+
+  const removeProductFromCart = () => {};
+
   const updateCart = (newQuantity = 0) => {
-    setTotal(total + newQuantity);
-    localStorage.setItem("totalCart", total + newQuantity);
+    // setTotal(total + newQuantity);
+    // localStorage.setItem("totalCart", total + newQuantity);
   };
 
   return (
-    <CartContext.Provider value={{ total, updateCart }}>
+    <CartContext.Provider
+      value={{ addProductToCart, updateCart, removeProductFromCart}}
+    >
       {props.children}
     </CartContext.Provider>
   );

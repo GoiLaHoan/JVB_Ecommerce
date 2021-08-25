@@ -48,7 +48,6 @@ const InfinityList = props => {
         setLoad(false)
     }, [load, index, data, props.data])
 
-        console.log(data);
     return (
         <div ref={listRef}>
             <Grid

@@ -5,13 +5,15 @@ import { withRouter } from "react-router";
 import numberWithCommas from "../utils/numberWithCommas";
 import Button from "./Button";
 import { CartContext } from "./Layout";
+
 const ProductView = (props) => {
   const product = props.product;
-  // console.log(props.product);
+
   const [previewImg, setPreviewImg] = useState(product.image01);
 
   const [quantity, setQuantity] = useState(1);
-  const { updateCart } = useContext(CartContext)
+  const { addProductToCart } = useContext(CartContext)
+  
   const updateQuantity = (type) => {
     if (type === "plus") {
       setQuantity(quantity + 1);
@@ -20,13 +22,14 @@ const ProductView = (props) => {
     }
   };
 
+  
+  const addToCart = () => {
+    addProductToCart(product.code, quantity)
+  };
+
   useEffect(() => {
     setPreviewImg(product.image01);
   }, [product]);
-  const addToCart = () => {
-    // localStorage.setItem("quantity", quantity)
-    updateCart(quantity);
-  };
 
   const goToCart = () => {
     props.history.push("/cart");
