@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Routes from "../routes/Routes";
+
+import { Provider } from 'react-redux';
+import store from '../store';
+import Cart from '../pages/Cart';
 
 export const LoginContext = React.createContext();
 export const LoginProvider = (props) => {
@@ -46,7 +50,8 @@ export const CartProvider = (props) => {
 
 const Layout = () => {
   return (
-    <LoginProvider>
+    <Provider store={store}>
+      <LoginProvider>
       <CartProvider>
         <BrowserRouter>
           <Route
@@ -63,6 +68,8 @@ const Layout = () => {
         </BrowserRouter>
       </CartProvider>
     </LoginProvider>
+    </Provider>
+    
   );
 };
 

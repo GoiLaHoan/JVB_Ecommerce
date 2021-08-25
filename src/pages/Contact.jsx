@@ -8,7 +8,7 @@ import Helmet from '../components/Helmet'
             <div className="container">
                 <div className="main">
                     Contact
-                </div>
+                </div> 
             </div>
         </Helmet>
     )

@@ -7,6 +7,9 @@ import SearchBox from "./SearchBox";
 import { LoginContext } from "./Layout";
 import { CartContext } from "./Layout";
 
+import { connect } from 'react-redux';
+import { addCart } from "../action/addAction";
+import { getNumbers } from "../action/getAction";
 const mainNav = [
   {
     display: "Trang chủ",
@@ -26,7 +29,15 @@ const mainNav = [
   },
 ];
 
-const Header = () => {
+const Header = (props) => {
+
+//start
+//Load the page using useEffect
+useEffect(() => {
+  getNumbers()
+}, [])
+//end
+
   const { total } = useContext(CartContext);
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
@@ -110,7 +121,7 @@ const Header = () => {
                       {total}
                     </div>
                   ) : (
-                    <div className="header__menu__right__item__quantity">0</div>
+                    <div className="header__menu__right__item__quantity">{props.cartProps.cartNumber}</div>
                   )}
                 </div>
                 <div className="header__menu__item header__menu__right__item">
@@ -140,4 +151,8 @@ const Header = () => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  cartProps: state.cartState
+})
+
+export default connect(mapStateToProps, {getNumbers})(Header);

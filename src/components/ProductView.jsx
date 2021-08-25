@@ -15,7 +15,11 @@ const ProductView = (props) => {
   const updateQuantity = (type) => {
     if (type === "plus") {
       setQuantity(quantity + 1);
+      
     } else {
+      //started
+      
+      //end
       setQuantity(quantity - 1 < 1 ? 1 : quantity - 1);
     }
   };

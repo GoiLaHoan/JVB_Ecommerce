@@ -9,7 +9,12 @@ import Cart from "../pages/Cart";
 import Contact from "../pages/Contact";
 import PromoCodes from "../pages/PromoCodes";
 import SignIn from "../pages/SignIn";
+
+
+
+
 const Routes = () => {
+
   return (
     <Switch>
       <Route path="/" exact component={Home} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { Link } from "react-router-dom";
@@ -7,7 +7,17 @@ import Button from "./Button";
 
 import numberWithCommas from "../utils/numberWithCommas";
 
+import { connect } from "react-redux";
+import { addCart } from "../action/addAction";
+
 const ProductCard = (props) => {
+
+  // const [cartNumber, setCartNumber] = useState(0);
+
+  // const addToCart = () => {
+  //   setCartNumber(cartNumber + 1);
+  // }
+
 
   return (
     <div className="product-card">
@@ -22,7 +32,7 @@ const ProductCard = (props) => {
         </div>
       </Link>
       <div className="product-card__btn">
-        <Button size="sm" icon="bx bx-cart" animate={true}>
+        <Button size="sm" icon="bx bx-cart" animate={true} onClick={() => props.addCart('Thêm vào giỏ hàng')}>
           CHỌN MUA
         </Button>
       </div>
@@ -37,4 +47,4 @@ ProductCard.propTypes = {
   slug: PropTypes.string.isRequired,
 };
 
-export default ProductCard;
+export default connect(null, {addCart})(ProductCard);
