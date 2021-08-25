@@ -20,7 +20,7 @@ const Routes = () => {
       <Route path="/promo-codes" component={PromoCodes} />
       <Route path="/cart" component={Cart} />
       <Route path="/login" component={SignIn} />
-      
+
     </Switch>
   );
 };

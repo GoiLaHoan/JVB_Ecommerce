@@ -53,9 +53,7 @@ const Layout = () => {
             render={(props) => (
               <div>
                 <Header />
-
                 <Routes />
-
                 <Footer />
               </div>
             )}
