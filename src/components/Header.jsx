@@ -31,15 +31,12 @@ const Header = () => {
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
   const { status, updateStatus } = useContext(LoginContext);
-  
-  const profile = JSON.parse(localStorage.getItem("profile"));
 
-  const TotalQuantityCart =  localStorage.getItem("cart")
-  ? JSON.parse(localStorage.getItem("cart"))
-  : {
-      products: [],
-      totalCart: 0,
-    } 
+  const profile = JSON.parse(localStorage.getItem("profile"));
+  
+  const { cart } = useContext(CartContext);
+
+  
   
   const headerRef = useRef(null);
 
@@ -110,9 +107,9 @@ const Header = () => {
                   <Link to="/cart">
                     <i className="bx bx-shopping-bag"></i>
                   </Link>
-                  {TotalQuantityCart.totalCart ? (
+                  {cart.totalCart ? (
                     <div className="header__menu__right__item__quantity">
-                      {TotalQuantityCart.totalCart}
+                      {cart.totalCart}
                     </div>
                   ) : (
                     <div className="header__menu__right__item__quantity">0</div>

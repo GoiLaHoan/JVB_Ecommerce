@@ -8,7 +8,6 @@ import { CartContext } from "./Layout";
 
 const ProductView = (props) => {
   const product = props.product;
-
   const [previewImg, setPreviewImg] = useState(product.image01);
 
   const [quantity, setQuantity] = useState(1);
@@ -32,6 +31,7 @@ const ProductView = (props) => {
   }, [product]);
 
   const goToCart = () => {
+    addProductToCart(product.code, quantity)
     props.history.push("/cart");
   };
   return (

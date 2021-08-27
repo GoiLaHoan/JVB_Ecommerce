@@ -56,7 +56,6 @@ const InfinityList = props => {
                 smCol={1}
                 gap={20}
             >
-
                 {
                     data.length ?
                     data.map((item, index) => (
@@ -66,6 +65,7 @@ const InfinityList = props => {
                             name={item.title}
                             price={Number(item.price)}
                             slug={item.slug}
+                            code={item.code}
                         />
                     ))
                     : <>

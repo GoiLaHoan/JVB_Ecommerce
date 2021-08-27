@@ -1,0 +1,95 @@
+.product-incart {
+  background-color: #fff;
+  display: flex;
+  border-bottom: 1px solid #c5c5c5;
+  &__image,
+  img {
+    max-width: 90px;
+    min-width: 100px;
+    min-height: 100px;
+    max-height: 100px;
+  }
+
+  &__title {
+    margin: auto 0px;
+    min-width: 560px;
+
+    &__name {
+      font-weight: "400";
+      margin-bottom: 10px;
+    }
+
+    &__name:hover {
+      color: $main-color;
+    }
+
+    &__description {
+      color: $txt-second-color;
+    }
+  }
+
+  &__price {
+    display: flex;
+    margin: auto 0px;
+    font-size: 16px !important;
+    color: #00b46e;
+    font-weight: 500 !important;
+    margin-right: 4px !important;
+    min-width: 76px;
+
+    
+  }
+
+  &__quantity {
+    display: flex;
+    margin: auto 0px;
+    padding: 0 20px;
+    &__btn {
+      @include flex(center, center);
+      width: 30px;
+      height: 30px;
+
+      cursor: pointer;
+      .bx {
+        font-size: 2rem;
+      }
+      .bx-minus-circle {
+        color: #c4cddd;
+      }
+      .bxs-plus-circle {
+        color: #f9b514;
+      }
+    }
+
+    &__input {
+      @include flex(center, center);
+      height: 30px;
+      font-size: 1.5rem;
+      color: #f9b514;
+      font-weight: 500 !important;
+      margin: 0 6px;
+      min-width: 56px;
+      line-height: 1.8rem;
+      border: 2px solid #c4cddd;
+      border-radius: 2px;
+    }
+  }
+
+  &__delele {
+    margin: auto 0px;
+    @include flex(center, center);
+    font-size: 1.8rem;
+    color: #bcb8b8; 
+    padding: 12px;
+  }
+  &__delele:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.04);
+    padding: 12px;
+    border-radius: 50%;
+  }
+}
+
+.product-incart:hover {
+  background-color: #f9f9f9;
+}

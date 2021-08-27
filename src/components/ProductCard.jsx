@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { CartContext } from "./Layout";
 
 import Button from "./Button";
 
 import numberWithCommas from "../utils/numberWithCommas";
 
 const ProductCard = (props) => {
+  // const history = useHistory();
+  const { code } = props
+  const { addProductToCart } = useContext(CartContext)
+  const goToCart = () => {
+    addProductToCart(code, 1)
+    // history.push("/cart");
+  };
 
   return (
     <div className="product-card">
@@ -18,11 +26,11 @@ const ProductCard = (props) => {
         <h3 className="product-card__name">{props.name}</h3>
         <div className="product-card__price">
           {numberWithCommas(props.price) + " đ"}
-
+  
         </div>
       </Link>
       <div className="product-card__btn">
-        <Button size="sm" icon="bx bx-cart" animate={true}>
+        <Button size="sm" icon="bx bx-cart" animate={true} onClick={() => goToCart()} >
           CHỌN MUA
         </Button>
       </div>
@@ -35,6 +43,7 @@ ProductCard.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   slug: PropTypes.string.isRequired,
+  code: PropTypes.string.isRequired,
 };
 
 export default ProductCard;

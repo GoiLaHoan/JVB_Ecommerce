@@ -37,6 +37,7 @@ export const CartProvider = (props) => {
   );
 
 
+
   const addProductToCart = (code, quantity) => {
     const check = cart.products.findIndex((product) => product.code === code);
     var sumQuantity = 0;
@@ -45,11 +46,11 @@ export const CartProvider = (props) => {
         code: code,
         quantity: quantity,
       });
+      
     } else {
-      var quantityProduct = cart.products[check].quantity + quantity;
       cart.products[check] = {
         code: code,
-        quantity: quantityProduct,
+        quantity: cart.products[check].quantity + quantity,
       };
     }
 
@@ -57,10 +58,38 @@ export const CartProvider = (props) => {
       sumQuantity += cart.products[i].quantity;
     }
     cart.totalCart = sumQuantity;
+    // const listProductsInCart = cart.products;
+    // console.log(listProductsInCart);
+    // console.log(sumQuantity);
+    // console.log(cart);
+    // setCart({
+    //   product: listProductsInCart,
+    //   totalCart: sumQuantity,
+    // })
     localStorage.setItem("cart", JSON.stringify(cart));
+
   };
 
-  const removeProductFromCart = () => {};
+  const removeProductFromCart = (code) => {
+    const check = cart.products.findIndex((product) => product.code === code);
+    let sumQuantity = 0;
+    if (cart.products[check].code === code) {
+      const newListProductInCart = cart.products.filter(
+        (product) => product.code !== cart.products[check].code
+      );
+      for (let i = 0; i < newListProductInCart.length; i++) {
+        sumQuantity += newListProductInCart[i].quantity;
+      }
+      setCart({
+        products: newListProductInCart,
+        totalCart: sumQuantity,
+      });
+      cart.products = newListProductInCart;
+      cart.totalCart = sumQuantity;
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+  };
 
   const updateCart = (newQuantity = 0) => {
     // setTotal(total + newQuantity);
@@ -69,7 +98,7 @@ export const CartProvider = (props) => {
 
   return (
     <CartContext.Provider
-      value={{ addProductToCart, updateCart, removeProductFromCart}}
+      value={{ addProductToCart, updateCart, removeProductFromCart, cart }}
     >
       {props.children}
     </CartContext.Provider>

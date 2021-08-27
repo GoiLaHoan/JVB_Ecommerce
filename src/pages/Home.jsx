@@ -31,6 +31,7 @@ const Home = () => {
                     name={item.title}
                     price={Number(item.price)}
                     slug={item.slug}
+                    code={item.code}
                   />
                 ))}
               </Grid>
@@ -65,6 +66,7 @@ const Home = () => {
                   name={item.title}
                   price={Number(item.price)}
                   slug={item.slug}
+                  code={item.code}
                 />
               ))}
             </Grid>
