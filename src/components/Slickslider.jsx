@@ -12,7 +12,7 @@ import img3 from "./../assets/images/slickSlider/3.png";
 const settings = {
   dots: true,
   infinite: true,
-  autoplay: false,
+  autoplay: true,
   speed: 700,
   autoplaySpeed: 1500,
   slidesToShow: 1,

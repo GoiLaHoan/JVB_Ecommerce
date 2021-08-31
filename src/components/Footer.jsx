@@ -6,7 +6,7 @@ import Grid from "./Grid";
 
 import logo from "../assets/images/Logo.svg";
 import app from "../assets/images/footer/app.png";
-import IOS from "../assets/images/footer/IOS.png";
+import ios from "../assets/images/footer/IOS.png";
 import android from "../assets/images/footer/android.png";
 import dangky from "../assets/images/footer/dangky.png";
 
@@ -196,7 +196,7 @@ const Footer = () => {
             <div className="footer__app-store">
               <Link to="/">
                 <div className="footer__app-store-item">
-                  <img className="IOS" src={IOS} alt="IOS" />
+                  <img className="IOS" src={ios} alt="ios" />
                 </div>
                 <div className="footer__app-store-item">
                   <img className="android" src={android} alt="android" />

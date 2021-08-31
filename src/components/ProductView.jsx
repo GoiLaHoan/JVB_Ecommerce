@@ -1,18 +1,21 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { withRouter } from "react-router";
 import numberWithCommas from "../utils/numberWithCommas";
 import Button from "./Button";
-import { CartContext } from "./Layout";
+
+import { useDispatch } from "react-redux";
+import * as actions from "../redux/actions";
 
 const ProductView = (props) => {
+  const dispatch = useDispatch();
+
   const product = props.product;
   const [previewImg, setPreviewImg] = useState(product.image01);
 
   const [quantity, setQuantity] = useState(1);
-  const { addProductToCart } = useContext(CartContext)
-  
+
   const updateQuantity = (type) => {
     if (type === "plus") {
       setQuantity(quantity + 1);
@@ -21,9 +24,18 @@ const ProductView = (props) => {
     }
   };
 
-  
   const addToCart = () => {
-    addProductToCart(product.code, quantity)
+    alert("Sản phẩm đã được thêm vào giỏ hàng")
+
+    dispatch(
+      actions.addProductToCart({
+        code: product.code,
+        quantity: quantity,
+        price: product.price,
+      })
+    );
+
+    setQuantity(1)
   };
 
   useEffect(() => {
@@ -31,7 +43,13 @@ const ProductView = (props) => {
   }, [product]);
 
   const goToCart = () => {
-    addProductToCart(product.code, quantity)
+    dispatch(
+      actions.addProductToCart({
+        code: product.code,
+        quantity: quantity,
+        price: product.price,
+      })
+    );
     props.history.push("/cart");
   };
   return (
@@ -72,10 +90,7 @@ const ProductView = (props) => {
         </div>
         <div className="product__info__item_wrap">
           <div className="product__info__item_left">
-            <div
-              className="product__info__item__sold"
-
-            >
+            <div className="product__info__item__sold">
               <i
                 className="bx bx-cart"
                 style={{ color: "#818181", fontSize: "30px" }}

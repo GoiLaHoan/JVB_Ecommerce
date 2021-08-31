@@ -1,20 +1,26 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-
-import { Link, useHistory } from "react-router-dom";
-import { CartContext } from "./Layout";
+import { useDispatch } from "react-redux";
+import * as actions from "../redux/actions";
+import { Link } from "react-router-dom";
 
 import Button from "./Button";
 
 import numberWithCommas from "../utils/numberWithCommas";
 
 const ProductCard = (props) => {
-  // const history = useHistory();
-  const { code } = props
-  const { addProductToCart } = useContext(CartContext)
+  const dispatch = useDispatch();
+
+  const { code, price } = props
   const goToCart = () => {
-    addProductToCart(code, 1)
-    // history.push("/cart");
+    alert("Sản phẩm đã được thêm vào giỏ hàng")
+    dispatch(
+      actions.addProductToCart({
+        code: code,
+        quantity: 1,
+        price: price,
+      })
+    );
   };
 
   return (

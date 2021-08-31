@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 
 const SearchBox = (props) => {
   const [keyword, setKeyword] = useState("");
-  // const [active, setActive] = useState(false);
   const history = useHistory();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -21,9 +20,7 @@ const SearchBox = (props) => {
     }
   };
 
-  // const toggleSearch = (e) => {
-  //   setActive(!active);
-  // }
+
 
   return (
     <div>

@@ -86,9 +86,7 @@ const Home = () => {
         <Section>
           <SectionTitle>Đối tác của thuocsi.vn</SectionTitle>
           <SectionBody>
-            {/* <Grid col={6} mdCol={3} smCol={1} gap={0}> */}
             <Doitac />
-            {/* </Grid> */}
           </SectionBody>
         </Section>
         {/* </div> */}

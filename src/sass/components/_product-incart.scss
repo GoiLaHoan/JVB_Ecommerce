@@ -2,6 +2,53 @@
   background-color: #fff;
   display: flex;
   border-bottom: 1px solid #c5c5c5;
+  justify-content: space-between;
+  @media only screen and (min-width: 1024px) {
+    // max-width: 620px;
+    min-width: 620px;
+  }
+  @media only screen and (max-width: 1023px) and (min-width: 601px) {
+    max-width: 725px;
+    min-width: 725px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    max-width: 100%;
+  }
+  &__left, &__right{
+    display: flex;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    .product-incart__delele__moblie {
+      display: none;
+    }
+    @include mobile {
+      .product-incart__delele__moblie {
+        font-size: 2rem;
+        display: block;
+      }
+    }
+  }
+
+
+  &__right {
+    @include mobile {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 12px 6px 12px;
+
+      .product-incart__delele {
+        display: none;
+      }
+
+      
+    }
+    
+  }
   &__image,
   img {
     max-width: 90px;
@@ -13,7 +60,11 @@
   &__title {
     margin: auto 0px;
     min-width: 560px;
-
+    max-width: 300px;
+    @include tablet {
+      max-width: 200px;
+      min-width: 200px;
+    }
     &__name {
       font-weight: "400";
       margin-bottom: 10px;
@@ -43,7 +94,7 @@
   &__quantity {
     display: flex;
     margin: auto 0px;
-    padding: 0 20px;
+    // padding: 0 20px 0 10px;
     &__btn {
       @include flex(center, center);
       width: 30px;

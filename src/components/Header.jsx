@@ -5,7 +5,7 @@ import logo from "../assets/images/Logo.svg";
 import SearchBox from "./SearchBox";
 
 import { LoginContext } from "./Layout";
-import { CartContext } from "./Layout";
+import { useSelector } from "react-redux";
 
 const mainNav = [
   {
@@ -27,17 +27,13 @@ const mainNav = [
 ];
 
 const Header = () => {
-
+  let ProductsInCart = useSelector((state) => state.ProductsInCart);
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
   const { status, updateStatus } = useContext(LoginContext);
 
   const profile = JSON.parse(localStorage.getItem("profile"));
-  
-  const { cart } = useContext(CartContext);
 
-  
-  
   const headerRef = useRef(null);
 
   useEffect(() => {
@@ -60,7 +56,6 @@ const Header = () => {
   const menuLeft = useRef(null);
 
   const menuToggle = () => menuLeft.current.classList.toggle("active");
-  // const [user, Setuser] = useState(false);
 
   return (
     <div className="header" ref={headerRef}>
@@ -107,9 +102,9 @@ const Header = () => {
                   <Link to="/cart">
                     <i className="bx bx-shopping-bag"></i>
                   </Link>
-                  {cart.totalCart ? (
+                  {ProductsInCart.totalCart ? (
                     <div className="header__menu__right__item__quantity">
-                      {cart.totalCart}
+                      {ProductsInCart.totalCart}
                     </div>
                   ) : (
                     <div className="header__menu__right__item__quantity">0</div>
