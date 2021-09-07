@@ -92,14 +92,6 @@ const handlers = {
     }
   },
 
-  async getImg(req, res, next) {
-    // console.log(filepath);
-    // fs.readFile(filepath, function (err, data) {
-    //   if (err) throw err; // Fail if the file can't be read.
-    //   res.writeHead(200, { "Content-Type": "image/jpeg" });
-    //   res.end(data); // Send the file data to the browser.
-    // });
-  },
 };
 
 module.exports = handlers;

@@ -22,7 +22,7 @@ const handlers = {
             let userPayload = user.toObject()
             userPayload.access
             delete userPayload.password
-            
+
 
             res.json(userPayload)
 
@@ -78,7 +78,6 @@ const handlers = {
                 { new: true }
             )
             let userPayload = user.toObject()
-            delete userPayload.password
             res.json(userPayload)
 
         } catch (err) {
@@ -132,6 +131,15 @@ const handlers = {
             next(err)
         }
     },
+    async deleteProfile(req, res, next) {
+        try {
+            let id = req.params.id;
+            let item = await userInfoModel.findByIdAndDelete(id);
+            res.json(item);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 module.exports = handlers
