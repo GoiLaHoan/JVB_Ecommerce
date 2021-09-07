@@ -12,5 +12,7 @@ authRouter.get('/', authHandlers.findMany)
 
 authRouter.put('/:id', authHandlers.updateProfile)
 
+authRouter.delete('/:id', authHandlers.deleteProfile)
+
 
 module.exports = authRouter

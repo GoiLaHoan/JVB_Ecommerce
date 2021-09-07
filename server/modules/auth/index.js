@@ -15,14 +15,14 @@ const handlers = {
             let user = await userInfoModel.findOne({
                 email
             })
-            // password = require('crypto').createHash('md5').update(password).digest('hex')
+            password = require('crypto').createHash('md5').update(password).digest('hex')
             if (!user || password !== user.password) {
                 throw new Error("wrong email or password")
             }
             let userPayload = user.toObject()
             userPayload.access
             delete userPayload.password
-            
+
 
             res.json(userPayload)
 
@@ -34,7 +34,7 @@ const handlers = {
     async signUp(req, res, next) {
         try {
             let { email, password, displayName } = req.body
-            // password = require('crypto').createHash('md5').update(password).digest('hex')
+            password = require('crypto').createHash('md5').update(password).digest('hex')
 
             if (!email) {
                 throw new Error("email required")
@@ -66,7 +66,6 @@ const handlers = {
         }
     },
     async updateProfile(req, res, next) {
-        console.log("Hoan");
         try {
             let data = req.body
             let id = req.params.id
@@ -79,7 +78,6 @@ const handlers = {
                 { new: true }
             )
             let userPayload = user.toObject()
-            delete userPayload.password
             res.json(userPayload)
 
         } catch (err) {
@@ -133,6 +131,15 @@ const handlers = {
             next(err)
         }
     },
+    async deleteProfile(req, res, next) {
+        try {
+            let id = req.params.id;
+            let item = await userInfoModel.findByIdAndDelete(id);
+            res.json(item);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
 
 module.exports = handlers
