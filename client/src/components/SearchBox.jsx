@@ -20,7 +20,7 @@ const SearchBox = (props) => {
     }
   };
 
-
+  
 
   return (
     <div>

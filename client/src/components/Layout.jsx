@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Routes from "../routes/Routes";
+import RoutesAdmin from "../routes/RoutesAdmin";
 export const LoginContext = React.createContext();
 export const LoginProvider = (props) => {
   const [status, setStatus] = useState(
@@ -26,8 +27,28 @@ export const LoginProvider = (props) => {
 };
 
 const Layout = () => {
-  return (
-    <LoginProvider>
+  const accountAdmin = JSON.parse(localStorage.getItem("profile"));
+  if (
+    accountAdmin &&
+    accountAdmin.email !== null &&
+    accountAdmin.email === "admin@gmail.com"
+  ) {
+    return (
+      <LoginProvider>
+        <BrowserRouter>
+          <Route
+            render={(props) => (
+              <div>
+                <RoutesAdmin />
+              </div>
+            )}
+          />
+        </BrowserRouter>
+      </LoginProvider>
+    );
+  } else {
+    return (
+      <LoginProvider>
         <BrowserRouter>
           <Route
             render={(props) => (
@@ -39,8 +60,9 @@ const Layout = () => {
             )}
           />
         </BrowserRouter>
-    </LoginProvider>
-  );
+      </LoginProvider>
+    );
+  }
 };
 
 export default Layout;

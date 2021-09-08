@@ -37,10 +37,11 @@ const Header = () => {
   const headerRef = useRef(null);
 
   const handleLogout = () => {
-    if (window.confirm('Bạn có chắc chắn muốn đăng xuất không?')) {
+    if (window.confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
       updateStatus();
+      localStorage.removeItem("profile");
     }
-  }
+  };
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (
@@ -117,7 +118,9 @@ const Header = () => {
                 </div>
                 <div className="header__menu__item header__menu__right__item">
                   <div className="header__menu__right__profile">
-                    <i className="bx bx-user header__menu__right__profile__icon__user"></i>
+                    <Link to="/">
+                      <i className="bx bx-user header__menu__right__profile__icon__user"></i>
+                    </Link>
                     <div className="header__menu__right__profile__dropMenu">
                       <h3
                         style={{
@@ -125,7 +128,7 @@ const Header = () => {
                           borderBottom: "1px solid #00B46E",
                         }}
                       >
-                        {profile.username}
+                        {profile && profile.name !== null && profile.username}
                       </h3>
                       <ul>
                         <li className="bx bxs-user-circle icon_dropMenu">
