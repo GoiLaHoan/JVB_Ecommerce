@@ -7,7 +7,7 @@ import "./sass/index.scss";
 import Layout from "./components/Layout";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import AdminUrl from "./pages/AdminUrl";
+import RoutesAdmin from "./routes/RoutesAdmin";
 const accountAdmin = JSON.parse(localStorage.getItem("profile"));
 if (
   accountAdmin &&
@@ -17,7 +17,7 @@ if (
   ReactDOM.render(
     <React.StrictMode>
       <BrowserRouter>
-          <AdminUrl />
+          <RoutesAdmin />
       </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")

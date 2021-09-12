@@ -104,15 +104,15 @@ const Header = () => {
             ))}
           </div>
           <div className="header__menu__right">
-            <div className="header__menu__item_icon_search header__menu__item header__menu__right__item">
-              <Route
-                render={({ history, match }) => (
-                  <SearchBox history={history} match={match} />
-                )}
-              />
-            </div>
             {status ? (
               <>
+                <div className="header__menu__item_icon_search header__menu__item header__menu__right__item">
+                  <Route
+                    render={({ history, match }) => (
+                      <SearchBox history={history} match={match} />
+                    )}
+                  />
+                </div>
                 <div className="header__menu__item header__menu__right__item">
                   <Link to="/cart">
                     <i className="bx bx-shopping-bag"></i>

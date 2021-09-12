@@ -7,11 +7,15 @@ const productRouter = require('./product')
 router.use(express.static("public"));
 
 
-router.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+const cors = require('cors');
+
+var corsOptions = {
+  origin: 'http://localhost:3000'
+}
+
+router.use(cors(corsOptions));
+
+
 
 
 router.use('/api/auth', authRouter)

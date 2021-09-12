@@ -10,7 +10,7 @@ import * as actions from "../redux/actions";
 
 const ProductView = (props) => {
   const dispatch = useDispatch();
-
+  
   const product = props.product;
   const [previewImg, setPreviewImg] = useState(product.image);
 

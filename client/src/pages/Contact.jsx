@@ -7,7 +7,7 @@ const Contact = () => {
     <Helmet title="Contact">
       <div className="container">
         <div className="main" style={{ display: "flex" }}>
-          <div style={{ margin: "auto" }}>
+          <div style={{ margin: "auto", fontSize: "2rem"}}>
             <h1 style={{ textAlign:"center"}}>Liên Hệ</h1>
             {/* eslint-disable-next-line */}
             <a href="https://www.facebook.com/GoiLaHoan/" target="_blank">

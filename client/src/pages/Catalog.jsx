@@ -12,7 +12,6 @@ import InfinityList from "../components/InfinityList";
 
 const Catalog = () => {
   let { keyword } = useParams();
-  // console.log(keyword);
   if (keyword === undefined) {
     keyword = "";
   }

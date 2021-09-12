@@ -21,7 +21,6 @@ const Routes = () => {
       <Route path="/promo-codes" component={PromoCodes} />
       <Route path="/cart" component={Cart} />
       <Route path="/login" component={SignIn} />
-      {/* <Route path="/admin" component={Admin} /> */}
       <Route path="*" exact={true} component={ErrorPage} />
     </Switch>
   );
