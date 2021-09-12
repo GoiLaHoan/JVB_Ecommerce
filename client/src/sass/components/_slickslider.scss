@@ -2,12 +2,12 @@
   padding-top:70px;
   margin-bottom: 80px;
 
-  // @include tablet {
+  // @media only screen and (max-width: 1024px) {
   //   height: 26vh;
   //   padding-top:70px;
   // }
 
-  @include mobile {
+  @media only screen and (max-width: 600px) {
     padding-top: 40px !important;
     // height: 20vh;
   }
@@ -22,12 +22,12 @@
   padding: 0 5px;
 
 
-  @include tablet {
+  @media only screen and (max-width: 1024px) {
     height: 30vh;
     // padding-top:70px;
   }
 
-  @include mobile {
+  @media only screen and (max-width: 600px) {
     // padding-top: 40px !important;
     height: 20vh;
   }

@@ -21,14 +21,13 @@ const Login = (validate) => {
   const history = useHistory();
 
   useEffect(() => {
-
     if (status) {
-      if(history.goBack() === history.push('/login')) {
-        history.push('/')
-      }
-      else {
+      if (history.goBack() === history.push("/login")) {
+        history.push("/");
+      } else {
         history.goBack();
       }
+      window.location.reload();
     }
   }, [status, history]);
   const handleChange = (e) => {

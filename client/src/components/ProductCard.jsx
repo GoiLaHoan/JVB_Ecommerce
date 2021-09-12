@@ -40,7 +40,7 @@ const ProductCard = (props) => {
           {numberWithCommas(props.price) + " đ"}
         </div>
       </Link>
-      <div className="product-card__btn">
+      <div className="product-card__button">
         <Button
           size="sm"
           icon="bx bx-cart"

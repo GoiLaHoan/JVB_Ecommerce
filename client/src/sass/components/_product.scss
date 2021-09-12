@@ -1,10 +1,10 @@
 .main_product {
   padding-top: 60px;
 	
-	@include tablet {
+	@media only screen and (max-width: 1024px) {
 		margin-top: calc(-16px);
 	}
-  @include mobile {
+  @media only screen and (max-width: 600px) {
 		margin-top: calc(-55px);
 	}
 }
@@ -16,7 +16,7 @@
   border-radius: 10px;
   @include flex(flex-start, flex-start);
 
-  @include mobile {
+  @media only screen and (max-width: 600px) {
     flex-direction: column;
   }
 
@@ -26,11 +26,11 @@
     padding: 20px;
     flex-wrap: wrap;
 
-    @include tablet {
+    @media only screen and (max-width: 1024px) {
       width: 80%;
     }
 
-    @include mobile {
+    @media only screen and (max-width: 600px) {
       width: 100%;
     }
 
@@ -66,9 +66,9 @@
     top: $header-shrink-height;
     padding-top: 2rem;
 
-    @include mobile {
+    @media only screen and (max-width: 600px) {
       position: relative;
-      top: unset;
+      top: unset !important;
       text-align: center;
     }
 
@@ -84,7 +84,7 @@
 
     &__item {
       margin-top: 2rem;
-	  @include mobile {
+	  @media only screen and (max-width: 600px) {
 		text-align: left;
 		margin-left: 10px;
 	  }
@@ -96,13 +96,13 @@
         padding-top: 40px;
         @include flex(flex-start, flex-start);
 
-        @include mobile {
+        @media only screen and (max-width: 600px) {
           padding-top: 0;
         }
       }
       &_left {
         width: 60%;
-        @include tablet {
+        @media only screen and (max-width: 1024px) {
           width: 100%;
           .product__info__item__button {
             display: flex;
@@ -117,7 +117,7 @@
         display: flex;
         flex-direction: column;
 
-        @include tablet {
+        @media only screen and (max-width: 1024px) {
           display: none;
         }
         &_label {
@@ -159,7 +159,7 @@
           cursor: pointer;
           margin-right: 1rem;
 
-          @include mobile {
+          @media only screen and (max-width: 600px) {
             width: 40px;
             height: 40px;
           }
@@ -177,7 +177,7 @@
             height: 40px;
             border-radius: 50%;
 
-            @include mobile {
+            @media only screen and (max-width: 600px) {
               width: 30px;
               height: 30px;
             }

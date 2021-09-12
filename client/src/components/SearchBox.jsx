@@ -16,6 +16,7 @@ const SearchBox = (props) => {
 
   const handleOnChangeEnter = (e) => {
     if (e.key === "Enter") {
+      
       setKeyword("");
     }
   };

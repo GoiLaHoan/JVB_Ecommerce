@@ -8,12 +8,12 @@
   height: 80px;
   transition: height 0.3s ease;
   border-bottom: 2px solid #00b46e;
-  @include tablet {
+  @media only screen and (max-width: 1024px) {
     height: $header-tablet-height;
     box-shadow: $box-shadow;
   }
 
-  @include mobile {
+  @media only screen and (max-width: 600px) {
     height: $header-mobile-height;
   }
 
@@ -26,7 +26,7 @@
     box-shadow: $box-shadow;
     z-index: 100;
 
-    @include mobile {
+    @media only screen and (max-width: 600px) {
       height: $header-mobile-height;
     }
   }
@@ -54,11 +54,11 @@
     &__item ~ &__item {
       margin-left: 39px;
 
-      @include tablet {
+      @media only screen and (max-width: 1024px) {
         margin-left: 20px;
       }
 
-      @include mobile {
+      @media only screen and (max-width: 600px) {
         margin-left: 10px;
       }
     }
@@ -122,10 +122,10 @@
             transition: 0.5s;
             cursor: pointer;
           }
-          @include tablet {
+          @media only screen and (max-width: 1024px) {
             right: 10px;
           }
-          @include mobile {
+          @media only screen and (max-width: 600px) {
             top: 50px;
           }
         }
@@ -165,12 +165,9 @@
         &_icon_search {
           cursor: pointer !important;
 
-          @include mobile {
-            display: none;
-          }
         }
 
-        @include tablet {
+        @media only screen and (max-width: 1024px) {
           margin-left: 10px;
         }
         &__quantity {
@@ -190,7 +187,7 @@
         margin-left: 10px !important;
         padding-bottom: 8px;
 
-        @include mobile {
+        @media only screen and (max-width: 600px) {
           // display: none;
           margin: 0;
           padding: 0;
@@ -229,7 +226,7 @@
         }
       }
 
-      @include mobile {
+      @media only screen and (max-width: 600px) {
         font-size: 1.5rem;
         margin-right: 18px;
       }
@@ -240,7 +237,7 @@
         display: none;
       }
 
-      @include tablet {
+      @media only screen and (max-width: 1024px) {
         flex-direction: column;
         background-color: $main-bg;
         position: absolute;
@@ -275,7 +272,7 @@
     &__mobile-toggle {
       display: none;
 
-      @include tablet {
+      @media only screen and (max-width: 1024px) {
         display: block;
         font-size: 2.5rem;
       }

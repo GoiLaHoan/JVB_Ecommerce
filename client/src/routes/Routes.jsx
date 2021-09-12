@@ -17,7 +17,7 @@ const Routes = () => {
       <Route path="/products/search=:keyword" component={Catalog} />
       <Route path="/product/:slug" component={Product} />
       <Route path="/products" component={Catalog} />
-      <Route path="/contact" component={ErrorPage} />
+      <Route path="/contact" component={Contact} />
       <Route path="/promo-codes" component={PromoCodes} />
       <Route path="/cart" component={Cart} />
       <Route path="/login" component={SignIn} />
