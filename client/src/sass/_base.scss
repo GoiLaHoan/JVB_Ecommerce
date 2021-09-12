@@ -4,40 +4,51 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+    padding: 0 ;
+    margin: 0 ;
+    box-sizing: border-box ;
+    -webkit-tap-highlight-color: transparent ;
     // user-select: none;
 }
 
 html {
-    font-size: 13px;
-    background-color: $main-bg;
-    @include mobile {
-        font-size: 11px;
+    font-size: 13px !important;
+    background-color: $main-bg !important;
+    @media only screen and (max-width: 600px) {
+        font-size: 11px !important;
     }
 }
 
 body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Roboto", sans-serif !important;
+    line-height: 1;
 }
 
 ul {
-    list-style-type: none;
+    list-style-type: none !important;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 { 
+    line-height: 1 !important;
+}
+
+.h2, h2 {
+    font-size: 1.5rem !important;
+}
+p {
+    margin-bottom: 0px;
 }
 
 a {
-    text-decoration: none;
-    color: unset;
+    text-decoration: none !important;
+    color: unset !important;
 }
 
 a:hover {
-    color: $main-color;
+    color: $main-color !important;
 }
 
 img {
-    max-width: 100%;
+    max-width: 100% !important;
 }
 
 @each $color, $val in $colors {
@@ -58,16 +69,16 @@ img {
 
 @each $val in $numbers {
     .grid-col-md-#{$val} {
-        @include tablet {
-            grid-template-columns: repeat($val, 1fr);
+        @media only screen and (max-width: 1024px) {
+            grid-template-columns: repeat($val, 1fr) !important;
         }
     }
 }
 
 @each $val in $numbers {
     .grid-col-sm-#{$val} {
-        @include mobile {
-            grid-template-columns: repeat($val, 1fr);
+        @media only screen and (max-width: 600px) {
+            grid-template-columns: repeat($val, 1fr) !important;
         }
     }
 }
@@ -78,11 +89,11 @@ img {
     padding: 0 50px;
     margin: auto;
 
-    @include tablet {
+    @media only screen and (max-width: 1024px) {
         padding: 0 20px;
     }
 
-    @include mobile {
+    @media only screen and (max-width: 600px) {
         padding: 0 10px;
     }
 }
@@ -92,11 +103,11 @@ img {
     margin-bottom: 2rem;
     min-height: 90vh;
 
-    @include tablet {
+    @media only screen and (max-width: 1024px) {
         margin-top: calc(#{$header-tablet-height});
     }
 
-    @include mobile {
+    @media only screen and (max-width: 600px) {
         margin-top: calc(#{$header-mobile-height});
     }
 }

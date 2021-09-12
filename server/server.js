@@ -1,4 +1,6 @@
+
 require('./connect-mongo')
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
@@ -9,8 +11,8 @@ const router = require('./router')
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => res.send('Hello from server!'))
-app.use("/uploads", express.static("uploads"));
 app.use(router)
+
 
 app.use((err, req, res, next) => {
   let message = err.message

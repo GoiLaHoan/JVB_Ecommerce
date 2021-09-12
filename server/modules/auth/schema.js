@@ -10,11 +10,7 @@ const userProfileSchema = new Schema({
         validate: {
             validator(email) {
                 let isValidEmail = EMAIL_REGEX.test(email)
-                // if (isValidEmail) {
-                //     return true
-                // } else {
-                //     return "not an email"
-                // }
+               
                 return isValidEmail
             }
         }

@@ -1,8 +1,8 @@
 .main-catalog {
-    @include tablet {
+    @media only screen and (max-width: 1024px) {
         margin-top: calc(-25px) !important;
     }
-    @include mobile {
+    @media only screen and (max-width: 600px) {
         margin-top: calc(-55px) !important;
     } 
 }
@@ -10,14 +10,14 @@
 .catalog {
     @include flex(flex-start, flex-start);
 
-    @include tablet {
+    @media only screen and (max-width: 1024px) {
         flex-direction: column;
     }
 
     &__filter {
         width: 15%;
 
-        @include tablet {
+        @media only screen and (max-width: 1024px) {
             width: max-content;
             height: 100vh;
             background-color: $main-bg;
@@ -31,7 +31,7 @@
             transition: transform 0.3s ease;
         }
 
-        @include mobile {
+        @media only screen and (max-width: 600px) {
             top: $header-mobile-height;
         }
 
@@ -62,7 +62,7 @@
 
         &__close {
             display: none;
-            @include tablet {
+            @media only screen and (max-width: 1024px) {
                 display: block;
                 font-size: 2rem;
                 margin-bottom: 1rem;
@@ -73,7 +73,7 @@
     &__content {
         width: 85%;
 
-        @include tablet {
+        @media only screen and (max-width: 1024px) {    
             width: 100%;
         }
     }
@@ -81,9 +81,14 @@
     &__filter__toggle {
         display: none;
 
-        @include tablet {
-            display: block;
-            margin-bottom: 2rem;
+        // @include tablet {
+        //     display: block !important;
+        //     margin-bottom: 2rem !important;
+        // }
+
+        @media only screen and (max-width: 1023px) {
+            display: block !important;
+            margin-bottom: 2rem !important;
         }
     }
 }

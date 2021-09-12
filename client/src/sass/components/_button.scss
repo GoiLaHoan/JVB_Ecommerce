@@ -1,4 +1,4 @@
-.btn {
+.button {
     border: 0;
     outline: 0;
     color: $btn-main-color;
@@ -9,10 +9,10 @@
     overflow: hidden;
     position: relative;
 
-    @include mobile {
+
+    @media only screen and (max-width: 600px) {
         font-size: 1rem;
     }
-
     &__txt,
     &__icon {
         display: block;
@@ -43,7 +43,7 @@
     }
 
     &-sm {
-        font-size: 1rem;
+        font-size: 1rem !important;
     }
 
     &-sm &__txt {

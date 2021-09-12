@@ -44,7 +44,7 @@
   }
 
   &__btn {
-    @include tablet {
+    @media only screen and (max-width: 1024px) {
       display: block;
     }
   }

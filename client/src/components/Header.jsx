@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react";
-import { Link, useLocation, Route } from "react-router-dom";
+import { Link, useLocation, Route, useHistory } from "react-router-dom";
 
 import logo from "../assets/images/Logo.svg";
 import SearchBox from "./SearchBox";
@@ -27,6 +27,7 @@ const mainNav = [
 ];
 
 const Header = () => {
+  const history = useHistory();
   let ProductsInCart = useSelector((state) => state.ProductsInCart);
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
@@ -40,8 +41,16 @@ const Header = () => {
     if (window.confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
       updateStatus();
       localStorage.removeItem("profile");
+      history.push("/login");
     }
   };
+  // eslint-disable-next-line
+  const loadLogin = () => {
+    history.push("/login");
+  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [loadLogin]);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (
@@ -95,15 +104,15 @@ const Header = () => {
             ))}
           </div>
           <div className="header__menu__right">
-            <div className="header__menu__item_icon_search header__menu__item header__menu__right__item">
-              <Route
-                render={({ history, match }) => (
-                  <SearchBox history={history} match={match} />
-                )}
-              />
-            </div>
             {status ? (
               <>
+                <div className="header__menu__item_icon_search header__menu__item header__menu__right__item">
+                  <Route
+                    render={({ history, match }) => (
+                      <SearchBox history={history} match={match} />
+                    )}
+                  />
+                </div>
                 <div className="header__menu__item header__menu__right__item">
                   <Link to="/cart">
                     <i className="bx bx-shopping-bag"></i>
@@ -118,9 +127,7 @@ const Header = () => {
                 </div>
                 <div className="header__menu__item header__menu__right__item">
                   <div className="header__menu__right__profile">
-                    <Link to="/">
-                      <i className="bx bx-user header__menu__right__profile__icon__user"></i>
-                    </Link>
+                    <i className="bx bx-user header__menu__right__profile__icon__user"></i>
                     <div className="header__menu__right__profile__dropMenu">
                       <h3
                         style={{
@@ -128,7 +135,9 @@ const Header = () => {
                           borderBottom: "1px solid #00B46E",
                         }}
                       >
-                        {profile && profile.name !== null && profile.username}
+                        <div style={{ fontSize: "1.5rem" }}>
+                          {profile && profile.name !== null && profile.username}
+                        </div>
                       </h3>
                       <ul>
                         <li className="bx bxs-user-circle icon_dropMenu">
@@ -153,15 +162,13 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link to="/login">
-                  <div className="header__menu__right__login">
-                    <button className="header__menu__right__login__btn">
-                      <span className="header__menu__right__login__btn__label">
-                        Đăng nhập
-                      </span>
-                    </button>
-                  </div>
-                </Link>
+                <div className="header__menu__right__login" onClick={loadLogin}>
+                  <button className="header__menu__right__login__btn">
+                    <span className="header__menu__right__login__btn__label">
+                      Đăng nhập
+                    </span>
+                  </button>
+                </div>
               </>
             )}
           </div>

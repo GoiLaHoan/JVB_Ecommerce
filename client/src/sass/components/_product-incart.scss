@@ -27,7 +27,7 @@
     .product-incart__delele__moblie {
       display: none;
     }
-    @include mobile {
+    @media only screen and (max-width: 600px) {
       .product-incart__delele__moblie {
         font-size: 2rem;
         display: block;
@@ -36,7 +36,7 @@
   }
 
   &__right {
-    @include mobile {
+    @media only screen and (max-width: 600px) {
       display: flex;
       justify-content: space-between;
       margin: 0 12px 6px 12px;
@@ -59,15 +59,21 @@
     min-width: 560px;
     max-width: 300px;
     margin-left: 10px;
-    @include tablet {
-      max-width: 300px;
-      min-width: 300px !important;
+    @media only screen and (max-width: 1024px) {
+      max-width: 210px !important;
+      min-width: 210px !important;
       margin-left: 10px;
     }
     &__name {
       font-weight: "400";
       margin-bottom: 10px;
-     
+      display: block;
+      font-size: 1.17em;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
     }
 
     &__name:hover {
