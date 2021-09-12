@@ -11,16 +11,22 @@ import numberWithCommas from "../utils/numberWithCommas";
 const ProductCard = (props) => {
   const dispatch = useDispatch();
 
-  const { _id, price } = props
+  const statusLogin = JSON.parse(localStorage.getItem("status"));
+
+  const { _id, price } = props;
   const goToCart = () => {
-    alert("Sản phẩm đã được thêm vào giỏ hàng")
-    dispatch(
-      actions.addProductToCart({
-        _id: _id,
-        quantity: 1,
-        price: price,
-      })
-    );
+    if (!statusLogin) {
+      alert("Bạn cần đăng nhập để mua");
+    } else {
+      alert("Sản phẩm đã được thêm vào giỏ hàng");
+      dispatch(
+        actions.addProductToCart({
+          _id: _id,
+          quantity: 1,
+          price: price,
+        })
+      );
+    }
   };
 
   return (
@@ -32,11 +38,15 @@ const ProductCard = (props) => {
         <h3 className="product-card__name">{props.name}</h3>
         <div className="product-card__price">
           {numberWithCommas(props.price) + " đ"}
-  
         </div>
       </Link>
-      <div className="product-card__btn">
-        <Button size="sm" icon="bx bx-cart" animate={true} onClick={() => goToCart()} >
+      <div className="product-card__button">
+        <Button
+          size="sm"
+          icon="bx bx-cart"
+          animate={true}
+          onClick={() => goToCart()}
+        >
           CHỌN MUA
         </Button>
       </div>

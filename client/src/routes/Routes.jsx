@@ -9,6 +9,7 @@ import Cart from "../pages/Cart";
 import Contact from "../pages/Contact";
 import PromoCodes from "../pages/PromoCodes";
 import SignIn from "../pages/SignIn";
+import ErrorPage from "../pages/404";
 const Routes = () => {
   return (
     <Switch>
@@ -20,6 +21,8 @@ const Routes = () => {
       <Route path="/promo-codes" component={PromoCodes} />
       <Route path="/cart" component={Cart} />
       <Route path="/login" component={SignIn} />
+      {/* <Route path="/admin" component={Admin} /> */}
+      <Route path="*" exact={true} component={ErrorPage} />
     </Switch>
   );
 };

@@ -24,18 +24,24 @@ const ProductView = (props) => {
     }
   };
 
+  const statusLogin = JSON.parse(localStorage.getItem("status"));
+
   const addToCart = () => {
-    alert("Sản phẩm đã được thêm vào giỏ hàng")
+    if (!statusLogin) {
+      alert("Bạn cần đăng nhập để mua");
+    } else {
+      alert("Sản phẩm đã được thêm vào giỏ hàng");
 
-    dispatch(
-      actions.addProductToCart({
-        _id: product._id,
-        quantity: quantity,
-        price: product.price,
-      })
-    );
+      dispatch(
+        actions.addProductToCart({
+          _id: product._id,
+          quantity: quantity,
+          price: product.price,
+        })
+      );
 
-    setQuantity(1)
+      setQuantity(1);
+    }
   };
 
   useEffect(() => {
@@ -43,14 +49,18 @@ const ProductView = (props) => {
   }, [product]);
 
   const goToCart = () => {
-    dispatch(
-      actions.addProductToCart({
-        _id: product._id,
-        quantity: quantity,
-        price: product.price,
-      })
-    );
-    props.history.push("/cart");
+    if (!statusLogin) {
+      alert("Bạn cần đăng nhập để mua");
+    } else {
+      dispatch(
+        actions.addProductToCart({
+          _id: product._id,
+          quantity: quantity,
+          price: product.price,
+        })
+      );
+      props.history.push("/cart");
+    }
   };
   return (
     <div className="product">

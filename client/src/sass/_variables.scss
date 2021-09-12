@@ -1,17 +1,17 @@
 $main-bg: #F4F7FC;
 $main-color: #00B46E;
 
-$txt-main-color: #00B46E;
-$txt-second-color: #8d8d8d;
-$txt-white: #fff;
+$txt-main-color: #00B46E !important;
+$txt-second-color: #8d8d8d !important;
+$txt-white: #fff !important;
 
-$btn-main-bg: $main-color;
-$btn-main-color: #fff;
+$btn-main-bg: $main-color !important;
+$btn-main-color: #fff !important;
 
-$header-height: 80px;
-$header-tablet-height: 70px;
-$header-mobile-height: 40px;
-$header-shrink-height: 70px;
+$header-height: 80px !important;
+$header-tablet-height: 70px !important;
+$header-mobile-height: 40px !important;
+$header-shrink-height: 70px !important;
 
 $box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
@@ -25,7 +25,7 @@ $colors: (
     "red": #ff0000,
 );
 
-$mobile-width: 600px;
-$tablet-width: 1024px;
+// $mobile-width: 600px !important;
+// $tablet-width: 1024px !important;
 
 $numbers: (0, 1, 2, 3, 4, 5, 6, 7, 8);

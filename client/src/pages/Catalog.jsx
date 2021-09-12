@@ -92,8 +92,7 @@ const Catalog = () => {
 
   const showHideFilter = () => filterRef.current.classList.toggle("active");
 
-
-    // eslint-disable-next-line
+  // eslint-disable-next-line
   const [productsData, setproductsData] = useState([]);
   const url = "http://localhost:9000/api/product";
 
@@ -109,8 +108,6 @@ const Catalog = () => {
     fetchData();
     // eslint-disable-next-line
   }, []);
-
-
 
   return (
     <Helmet title="Products">

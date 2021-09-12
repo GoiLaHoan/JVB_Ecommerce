@@ -92,6 +92,10 @@ const handlers = {
     }
   },
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> hoan2
 };
 
 module.exports = handlers;

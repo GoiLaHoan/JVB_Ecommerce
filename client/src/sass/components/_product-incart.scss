@@ -16,7 +16,8 @@
     flex-direction: column;
     max-width: 100%;
   }
-  &__left, &__right{
+  &__left,
+  &__right {
     display: flex;
   }
 
@@ -26,7 +27,7 @@
     .product-incart__delele__moblie {
       display: none;
     }
-    @include mobile {
+    @media only screen and (max-width: 600px) {
       .product-incart__delele__moblie {
         font-size: 2rem;
         display: block;
@@ -34,9 +35,8 @@
     }
   }
 
-
   &__right {
-    @include mobile {
+    @media only screen and (max-width: 600px) {
       display: flex;
       justify-content: space-between;
       margin: 0 12px 6px 12px;
@@ -44,10 +44,7 @@
       .product-incart__delele {
         display: none;
       }
-
-      
     }
-    
   }
   &__image,
   img {
@@ -61,13 +58,22 @@
     margin: auto 0px;
     min-width: 560px;
     max-width: 300px;
-    @include tablet {
-      max-width: 200px;
-      min-width: 200px;
+    margin-left: 10px;
+    @media only screen and (max-width: 1024px) {
+      max-width: 210px !important;
+      min-width: 210px !important;
+      margin-left: 10px;
     }
     &__name {
       font-weight: "400";
       margin-bottom: 10px;
+      display: block;
+      font-size: 1.17em;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
     }
 
     &__name:hover {
@@ -87,8 +93,6 @@
     font-weight: 500 !important;
     margin-right: 4px !important;
     min-width: 76px;
-
-    
   }
 
   &__quantity {
@@ -130,7 +134,7 @@
     margin: auto 0px;
     @include flex(center, center);
     font-size: 1.8rem;
-    color: #bcb8b8; 
+    color: #bcb8b8;
     padding: 12px;
   }
   &__delele:hover {

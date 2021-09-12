@@ -8,7 +8,7 @@
       padding-left: 26px;
       padding-top: 5px;
 
-      @include mobile {
+      @media only screen and (max-width: 600px) {
         width: 42px;
         height: 32px;
       }
@@ -33,11 +33,11 @@
       width: 420px;
       cursor: pointer;
 
-      @include tablet {
+      @media only screen and (max-width: 1024px) {
         width: 699px;
       }
 
-      @include mobile {
+      @media only screen and (max-width: 600px) {
         width: 356px;
       }
     }
@@ -49,7 +49,7 @@
         min-width: 420px !important;
       }
 
-      @include mobile {
+      @media only screen and (max-width: 600px) {
         top: -5px;
         left: -47px;
         min-width: 375px;
@@ -63,7 +63,7 @@
       top: 8px;
       left: 8px;
 
-      @include mobile {
+      @media only screen and (max-width: 600px) {
         top: 6px;
         left: -34px;
       }

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react";
-import { Link, useLocation, Route } from "react-router-dom";
+import { Link, useLocation, Route, useHistory } from "react-router-dom";
 
 import logo from "../assets/images/Logo.svg";
 import SearchBox from "./SearchBox";
@@ -27,6 +27,7 @@ const mainNav = [
 ];
 
 const Header = () => {
+  const history = useHistory();
   let ProductsInCart = useSelector((state) => state.ProductsInCart);
   const { pathname } = useLocation();
   const activeNav = mainNav.findIndex((e) => e.path === pathname);
@@ -37,10 +38,19 @@ const Header = () => {
   const headerRef = useRef(null);
 
   const handleLogout = () => {
-    if (window.confirm('Bạn có chắc chắn muốn đăng xuất không?')) {
+    if (window.confirm("Bạn có chắc chắn muốn đăng xuất không?")) {
       updateStatus();
+      localStorage.removeItem("profile");
+      history.push("/login");
     }
-  }
+  };
+  // eslint-disable-next-line
+  const loadLogin = () => {
+    history.push("/login");
+  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [loadLogin]);
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (
@@ -125,7 +135,9 @@ const Header = () => {
                           borderBottom: "1px solid #00B46E",
                         }}
                       >
-                        {profile.username}
+                        <div style={{ fontSize: "1.5rem" }}>
+                          {profile && profile.name !== null && profile.username}
+                        </div>
                       </h3>
                       <ul>
                         <li className="bx bxs-user-circle icon_dropMenu">
@@ -150,15 +162,13 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link to="/login">
-                  <div className="header__menu__right__login">
-                    <button className="header__menu__right__login__btn">
-                      <span className="header__menu__right__login__btn__label">
-                        Đăng nhập
-                      </span>
-                    </button>
-                  </div>
-                </Link>
+                <div className="header__menu__right__login" onClick={loadLogin}>
+                  <button className="header__menu__right__login__btn">
+                    <span className="header__menu__right__login__btn__label">
+                      Đăng nhập
+                    </span>
+                  </button>
+                </div>
               </>
             )}
           </div>

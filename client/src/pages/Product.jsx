@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 import Helmet from "../components/Helmet";
 import Section, { SectionBody, SectionTitle } from "../components/Section";
 import Grid from "../components/Grid";
@@ -10,13 +9,11 @@ import productData from "../assets/info-data/products";
 import { Link } from "react-router-dom";
 
 const Product = (props) => {
-  
-
   const product = productData.getProductBySlug(props.match.params.slug);
 
   const relatedProducts = productData.getProducts(6);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, [product]);
 
@@ -40,7 +37,7 @@ const Product = (props) => {
                     name={item.title}
                     price={Number(item.price)}
                     slug={item.slug}
-                    code={item.code}
+                    _id={item._id}
                   />
                 ))}
               </Grid>

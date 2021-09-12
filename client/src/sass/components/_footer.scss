@@ -10,7 +10,7 @@
     &__container {
         margin-left: 56px;
 
-        @include mobile {
+        @media only screen and (max-width: 600px) {
             margin-left: 26px;
             margin-right: 16px;
           }
@@ -19,6 +19,7 @@
     &__about {
         p {
             margin-bottom: 1rem;
+            line-height: 1.5;
         }
     }
 
@@ -42,12 +43,12 @@
         margin-top: 30px;
     }
     &__contact {
-        @include tablet {
+        @media only screen and (max-width: 1024px) {
             // display: flex;
             // justify-content: space-between;
             margin-right: 50px;
         }
-        @include mobile {
+        @media only screen and (max-width: 600px) {
             justify-content: space-between;
         }
     }
@@ -91,7 +92,7 @@
     //CSS APP giao hàng
     &__app {
         margin-top: 50px;
-        @include mobile {
+        @media only screen and (max-width: 600px) {
             display: none;
           }
     }

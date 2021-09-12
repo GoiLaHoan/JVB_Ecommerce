@@ -54,9 +54,9 @@ const ProductsInCart = (props) => {
             </div>
             <div className="product-incart__title">
               <Link to={`/product/${product.listProductinCart.slug}`}>
-                <h3 className="product-incart__title__name">
+                <div className="product-incart__title__name">
                   {product.listProductinCart.title}
-                </h3>
+                </div>
               </Link>
               <p className="product-incart__title__description">
                 {product.listProductinCart.description}
