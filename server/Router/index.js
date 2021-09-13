@@ -17,7 +17,6 @@ router.use(cors(corsOptions));
 
 
 
-
 router.use('/api/auth', authRouter)
 router.use('/api/product', productRouter)
 
