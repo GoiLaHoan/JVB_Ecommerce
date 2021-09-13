@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:9000/api/product";
+const url = "https://jvb-ecommerce.herokuapp.com/api/product";
 let products = [];
 
 axios

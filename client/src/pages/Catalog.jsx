@@ -93,7 +93,7 @@ const Catalog = () => {
 
   // eslint-disable-next-line
   const [productsData, setproductsData] = useState([]);
-  const url = "http://localhost:9000/api/product";
+  const url = "https://jvb-ecommerce.herokuapp.com/api/product";
 
   useEffect(() => {
     async function fetchData() {

@@ -1,12 +1,11 @@
-
 require('./connect-mongo')
 
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 
-const port = 9000
-const router = require('./router')
+const port = process.env.PORT || 9000
+const router = require('./RouterHere')
 
 app.use(bodyParser.json())
 
