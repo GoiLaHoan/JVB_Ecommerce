@@ -40,7 +40,7 @@ const AdminUrl = () => {
         </button>
       </nav>
 
-      <div className="container mt-3">
+      <div className="container mt-3" style={{backgroundColor: '#F4F7FC'}}>
         <Switch>
           <Route exact path={["/", "/product"]} component={ProductsList} />
           <Route exact path="/add" component={AddProduct} />

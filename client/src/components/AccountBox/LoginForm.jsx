@@ -4,6 +4,7 @@ import { Marginer } from "../Marginer";
 import { AccountContext } from './accountContext';
 import validateAccount from "../Auth-Login/validateAccount";
 import Login from "../Auth-Login/Login";
+import Helmet from '../Helmet';
 
 
 const LoginForm = () => {
@@ -11,6 +12,7 @@ const LoginForm = () => {
     const { handleChange, values, handleSubmit, errors } = Login(validateAccount);
     return (
         <>
+            <Helmet title="Login">
             <form onSubmit={handleSubmit}>
                 {/* {(error !== "") ? (<div>{error}</div>) : ""} */}
                 <BoxContainer >
@@ -29,6 +31,7 @@ const LoginForm = () => {
                     <MutedLink href="#">Don't have an account?<BoldLink href="#" onClick={switchToSignup}>SignUp</BoldLink></MutedLink>
                 </BoxContainer>
             </form>
+            </Helmet>
         </>
     )
 

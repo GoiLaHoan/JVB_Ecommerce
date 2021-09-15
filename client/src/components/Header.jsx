@@ -44,13 +44,8 @@ const Header = () => {
       history.push("/login");
     }
   };
-  // eslint-disable-next-line
-  const loadLogin = () => {
-    history.push("/login");
-  };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [loadLogin]);
+
+ 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (
@@ -162,13 +157,15 @@ const Header = () => {
               </>
             ) : (
               <>
-                <div className="header__menu__right__login" onClick={loadLogin}>
+                <Link to='/login'>
+                <div className="header__menu__right__login">
                   <button className="header__menu__right__login__btn">
                     <span className="header__menu__right__login__btn__label">
                       Đăng nhập
                     </span>
                   </button>
                 </div>
+                </Link>
               </>
             )}
           </div>
