@@ -112,7 +112,7 @@ const ProductView = (props) => {
                   paddingTop: "8px",
                 }}
               >
-                {Math.floor(Math.random() * 30)} lượt mua trong 24h giờ qua
+                27 lượt mua trong 24h giờ qua
               </span>
             </div>
             <div className="product__info__item">
