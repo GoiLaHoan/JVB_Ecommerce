@@ -10,7 +10,7 @@ import * as actions from "../redux/actions";
 
 const ProductView = (props) => {
   const dispatch = useDispatch();
-
+  
   const product = props.product;
   const [previewImg, setPreviewImg] = useState(product.image);
 
@@ -112,7 +112,7 @@ const ProductView = (props) => {
                   paddingTop: "8px",
                 }}
               >
-                37 lượt mua trong 24h giờ qua
+                27 lượt mua trong 24h giờ qua
               </span>
             </div>
             <div className="product__info__item">

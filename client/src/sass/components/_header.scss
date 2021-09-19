@@ -104,6 +104,7 @@
           transition: 0.5s;
           background-color: #fff;
           display: none;
+          z-index: 999;
           .h3 {
             width: 100%;
             text-align: center;
@@ -131,13 +132,14 @@
         }
         &__dropMenu:before {
           content: "";
-          top: -5px;
+          top: -10px;
           right: 20px;
           width: 20px;
           height: 20px;
           background: #fff;
           position: absolute;
           transform: rotate(45deg);
+          z-index: 888;
         }
         &__dropMenu:after {
           content: "";
@@ -147,6 +149,8 @@
           top: -32px;
           width: 150px;
           height: 32px;
+          z-index: 888;
+
         }
       }
       &__profile:hover &__profile__dropMenu {

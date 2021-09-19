@@ -113,7 +113,6 @@ const handlers = {
             let limit = pageSize
             let skip = (pageIndex - 1) * pageSize
             let sortInfo = `${sort == 'desc' ? '-' : ''}${sortBy}`
-            // fields = 'title, description' > fieldArr = ['title', 'description']
             let fieldArr = fields.split(',').map(field => field.trim())
             let conditions = {}
             if (search) {

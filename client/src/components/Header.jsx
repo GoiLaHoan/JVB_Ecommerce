@@ -44,13 +44,8 @@ const Header = () => {
       history.push("/login");
     }
   };
-  // eslint-disable-next-line
-  const loadLogin = () => {
-    history.push("/login");
-  };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [loadLogin]);
+
+ 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       if (
@@ -104,15 +99,15 @@ const Header = () => {
             ))}
           </div>
           <div className="header__menu__right">
-            <div className="header__menu__item_icon_search header__menu__item header__menu__right__item">
-              <Route
-                render={({ history, match }) => (
-                  <SearchBox history={history} match={match} />
-                )}
-              />
-            </div>
             {status ? (
               <>
+                <div className="header__menu__item_icon_search header__menu__item header__menu__right__item">
+                  <Route
+                    render={({ history, match }) => (
+                      <SearchBox history={history} match={match} />
+                    )}
+                  />
+                </div>
                 <div className="header__menu__item header__menu__right__item">
                   <Link to="/cart">
                     <i className="bx bx-shopping-bag"></i>
@@ -162,13 +157,15 @@ const Header = () => {
               </>
             ) : (
               <>
-                <div className="header__menu__right__login" onClick={loadLogin}>
+                <Link to='/login'>
+                <div className="header__menu__right__login">
                   <button className="header__menu__right__login__btn">
                     <span className="header__menu__right__login__btn__label">
                       Đăng nhập
                     </span>
                   </button>
                 </div>
+                </Link>
               </>
             )}
           </div>
